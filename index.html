@@ -478,10 +478,10 @@ h3 {
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
-    "<tr><td>Total trafficking crimes reported</td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
-    "<tr><td>Number of sex trafficking crimes reported</td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-    "<tr><td>Number of forced labor crimes reported</td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
-    "</table>";
+      "<tr><td>Total Crimes: </td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+      "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
