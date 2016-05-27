@@ -6,6 +6,87 @@
 <style>
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+=======
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+>>>>>>> origin/gh-pages
+
+  .bar {
+    fill: steelblue;
+  }
+
+<<<<<<< HEAD
+  .info {
+    width: 1400px;
+    height: 130px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 0px;
+
+  }
+
+  .infotwo {
+    width: 1400px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 0px;
+
+  }
+  #classinfo {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-top: 0px;
+    padding-left: 50px;
+
+  }
+  #filesubmitted {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-left: 60px;
+
+  }
+  #data {
+    float: left;
+    width: 250px;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+  }
+
+  #code {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-left: 200px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .x.axis path {
+    display: none;
+  }
+=======
+
 .axis path,
 .axis line {
   fill: none;
@@ -17,62 +98,16 @@
   fill: steelblue;
 }
 
-.info {
-    width: 1400px;
-    height: 130px;
-    margin: 0 auto;
-    text-align: left;
-    margin-bottom: 30px;
-    padding-bottom: 0px;
-
-  }
-
-.infotwo {
-    width: 1400px;
-    height: 100px;
-    margin: 0 auto;
-    text-align: left;
-    margin-bottom: 0px;
-   
-}
-#classinfo {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-top: 0px;
-  padding-left: 50px;
-
-}
-#filesubmitted {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-left: 60px;
- 
-}
-#data {
-  float: left;
-  width: 250px;
-  height: 100%;
-  padding-left: 50px;
-  padding-right: 0px;
-  padding-bottom: 20px;
-}
-
-#code {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-left: 200px;
-  padding-right: 0px;
-  padding-bottom: 30px;
-}
-h3 {
-  font-size: 15px;
-}
+=======
+>>>>>>> origin/gh-pages
 .x.axis path {
   display: none;
 }
+>>>>>>> origin/gh-pages
+
+
+
+
 
   .state{
     fill: none;
@@ -123,23 +158,110 @@ h3 {
 
   #selection {
     padding: 10px;
+<<<<<<< HEAD
+<<<<<<< HEAD
   } 
 
   #gender_chosen, #age_chosen{
     width: 150px !important;
   }
-    
+
   #chooseGender, #chooseAge, #compare{
     width: 110px !important;
+=======
+>>>>>>> origin/gh-pages
+=======
+>>>>>>> origin/gh-pages
   }
 
-.modal-dialog {
-          width: 960px; /* New width for default modal */
-        }
+  .modal-dialog {
+    width: 960px; /* New width for default modal */
+  }
 
 </style>
 <body>
   <div class="container">
+<<<<<<< HEAD
+    <div id="tooltip"></div><!-- div to hold tooltip. -->
+    <div class="page-header">
+      <h1>Human Trafficking: Sex Trafficking and Forced Labor</h1>
+    </div>
+    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div id="selection">
+
+      <h4>Select gender: </h4>
+      <select id='gender' name="gender" class='chosen-select'>
+       <option value="Female">Female</option>
+       <option value="Male">Male</option>
+       <option value="Other">Other</option>
+     </select>
+     <button id="chooseGender" class="btn btn-info btn-sm">view by gender!</button>
+
+     <h4>Select age: </h4>
+     <select id='age' name="age" class='chosen-select'>
+       <option value="Adult">Adult</option>
+       <option value="Minor">Minor</option>
+     </select>
+     <button id="chooseAge" class="btn btn-info btn-sm">view by age!</button>  
+
+     <h4>Select two states to compare their data: </h4>
+     <select id='state1' name="state1" class='chosen-select'>
+       <option value="AL">Alabama</option>
+       <option value="AK">Alaska</option>
+       <option value="AZ">Arizona</option>
+       <option value="AR">Arkansas</option>
+       <option value="CA">California</option>
+       <option value="CO">Colorado</option>
+       <option value="CT">Connecticut</option>
+       <option value="DE">Delaware</option>
+       <option value="DC">District Of Columbia</option>
+       <option value="FL">Florida</option>
+       <option value="GA">Georgia</option>
+       <option value="HI">Hawaii</option>
+       <option value="ID">Idaho</option>
+       <option value="IL">Illinois</option>
+       <option value="IN">Indiana</option>
+       <option value="IA">Iowa</option>
+       <option value="KS">Kansas</option>
+       <option value="KY">Kentucky</option>
+       <option value="LA">Louisiana</option>
+       <option value="ME">Maine</option>
+       <option value="MD">Maryland</option>
+       <option value="MA">Massachusetts</option>
+       <option value="MI">Michigan</option>
+       <option value="MN">Minnesota</option>
+       <option value="MS">Mississippi</option>
+       <option value="MO">Missouri</option>
+       <option value="MT">Montana</option>
+       <option value="NE">Nebraska</option>
+       <option value="NV">Nevada</option>
+       <option value="NH">New Hampshire</option>
+       <option value="NJ">New Jersey</option>
+       <option value="NM">New Mexico</option>
+       <option value="NY">New York</option>
+       <option value="NC">North Carolina</option>
+       <option value="ND">North Dakota</option>
+       <option value="OH">Ohio</option>
+       <option value="OK">Oklahoma</option>
+       <option value="OR">Oregon</option>
+       <option value="PA">Pennsylvania</option>
+       <option value="RI">Rhode Island</option>
+       <option value="SC">South Carolina</option>
+       <option value="SD">South Dakota</option>
+       <option value="TN">Tennessee</option>
+       <option value="TX">Texas</option>
+       <option value="UT">Utah</option>
+       <option value="VT">Vermont</option>
+       <option value="VA">Virginia</option>
+       <option value="WA">Washington</option>
+       <option value="WV">West Virginia</option>
+       <option value="WI">Wisconsin</option>
+       <option value="WY">Wyoming</option>
+     </select>
+
+     <select id='state2' name="state2" class="chosen-select">
+=======
   <div id="tooltip"></div><!-- div to hold tooltip. -->
   <div class="page-header">
     <h1>Human Trafficking: Sex Trafficking and Forced Labor</h1>
@@ -147,22 +269,6 @@ h3 {
   <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <div id="selection">
-      
-    <h4>Select gender: </h4>
-    <select id='gender' name="gender" class='chosen-select'>
-     <option value="Female">Female</option>
-     <option value="Male">Male</option>
-     <option value="Other">Other</option>
-    </select>
-    <button id="chooseGender" class="btn btn-info btn-sm">view by gender!</button>
-      
-    <h4>Select age: </h4>
-    <select id='age' name="age" class='chosen-select'>
-     <option value="Adult">Adult</option>
-     <option value="Minor">Minor</option>
-    </select>
-    <button id="chooseAge" class="btn btn-info btn-sm">view by age!</button>  
-    
     <h4>Select two states to compare their data: </h4>
     <select id='state1' name="state1" class='chosen-select'>
      <option value="AL">Alabama</option>
@@ -219,6 +325,7 @@ h3 {
     </select>
 
     <select id='state2' name="state2" class="chosen-select">
+>>>>>>> origin/gh-pages
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>
@@ -277,60 +384,97 @@ h3 {
   <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
   <h2>What Can You Do to Stop Human Trafficking?</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
-  <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-  <hr>
-  <div class = "info" style=" list-style: none;">
-    <div id="classinfo" style="list-style: none;">
-                <h3>Created:</h3>
-                <li>CMPS 165</li>
-                <li>Data Programming for Visualization</li>
-                <li>Spring 2015</li>
-                <li>Suresh K. Lodha</li>
-                <li>Ryan Brounley</li>
-            </div>
-    <div id="filesubmitted" style="list-style: none;">
-                <h3>Files:</h3>
-                <li>index.html</li>
-                <li>data.json</li>
-                <li>States.js</li>
-                <li>README</li>
-            </div>
+    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <hr>
+    <div class = "info" style=" list-style: none;">
+      <div id="classinfo" style="list-style: none;">
+        <h3>Created:</h3>
+        <li>CMPS 165</li>
+        <li>Data Programming for Visualization</li>
+        <li>Spring 2016</li>
+        <li>Suresh K. Lodha</li>
+        <li>Ryan Brounley</li>
+      </div>
+      <div id="filesubmitted" style="list-style: none;">
+        <h3>Files:</h3>
+        <li>index.html</li>
+        <li>data.json</li>
+        <li>States.js</li>
+        <li>README</li>
+      </div>
 
     </div>
 
     <div class="infotwo" style="list-style: none;">
       <div id="data" style="list-style: none;">
-                <h3>Data Resource:</h3>
-                <li><a href="http://traffickingresourcecenter.org/resources" target="_blank">Trafficking Resource Center</a></li>
-            </div>
-        <div id="code" style="list-style: none;">
-                <h3>Code Resource:</h3>
-                <li><a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">NPashap</a>
-                </li>
-                <li><a href="https://bl.ocks.org/mbostock/3887051" target="_blank">Mike Bostock</a>
-                </li>
-                <li><a href="http://getbootstrap.com/javascript/#modals" target="_blank">BootStrap</a>
-                </li><li><a href="https://harvesthq.github.io/chosen/" target="_blank">Harvest</a>
-                </li>
-            </div>
+        <h3>Data Resource:</h3>
+        <li><a href="http://traffickingresourcecenter.org/resources" target="_blank">Trafficking Resource Center</a></li>
       </div>
-      <br>
-<hr>
+      <div id="code" style="list-style: none;">
+        <h3>Code Resource:</h3>
+        <li><a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">NPashap</a>
+        </li>
+        <li><a href="https://bl.ocks.org/mbostock/3887051" target="_blank">Mike Bostock</a>
+        </li>
+        <li><a href="http://getbootstrap.com/javascript/#modals" target="_blank">Bootstrap</a>
+        </li><li><a href="https://harvesthq.github.io/chosen/" target="_blank">Chosen</a>
+      </li>
+    </div>
+  </div>
+  <br>
+  <hr>
   <footer class="footer">
     <div class="container">
       <p class="text-center">&copy; 2016 <i class="fa fa-heart"></i>Ibrahim Altaweel, Brad Cardello, Breket Haile, and Douglas Silva </p>
     </div>
   </footer>
   <div id = "resource" style=" list-style: none;">
-  
+
+    <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <svg width="960" height="600" id="bar"></svg> <!-- svg to hold the map. -->
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="uStates.js"></script> <!-- creates uStates. -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
+  <script>
+
+    /*Clear the modal #bar graph html on close so that next one starts with a clean state*/
+    $('#myModal').on('hidden.bs.modal', function () {
+      $('#bar').html("");
+    })
+=======
+=======
+>>>>>>> origin/gh-pages
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -358,14 +502,25 @@ h3 {
   $('#myModal').on('hidden.bs.modal', function () {
     $('#bar').html("");
   })
+>>>>>>> origin/gh-pages
   // Initiaze chosen library for better option selection
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
-      "<tr><td>Total trafficking crimes reported</td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Number of sex trafficking crimes reported</td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Number of forced labor crimes reported</td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "<tr><td>Total trafficking crimes reported</td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
+    "<tr><td>Number of sex trafficking crimes reported</td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+    "<tr><td>Number of forced labor crimes reported</td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+    "</table>";
+=======
+=======
+>>>>>>> origin/gh-pages
+      "<tr><td>Total Crimes: </td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
       "</table>";
+>>>>>>> origin/gh-pages
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
@@ -386,7 +541,9 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-      data[d].color = d3.interpolate("#00FFFF", "#00008B")(data[d].traffickingCrimesReported/1000);
+      data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].traffickingCrimesReported/130));
+      //data[d].color = d3.interpolate("#9ebcda", "#4d004b")(data[d].traffickingCrimesReported/100);
+
     });
 
     /* draw states on id #statesvg */
@@ -405,16 +562,16 @@ h3 {
       for (var i = 0; i < length; i++) {
         if (keys[i] == state1){
           arr.push({"State": d3.select('#' + state1).attr("name"),
-                      "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
-                      "Number of sex trafficking crimes reported": data[state1].sexTraffickingCrimesReported,
-                      "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
-                    });
+            "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
+            "Number of sex trafficking crimes reported": data[state1].sexTraffickingCrimesReported,
+            "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
+          });
         }
         if (keys[i] == state2){
           arr.push({"State": d3.select('#' + state2).attr("name"),
-                      "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
-                      "Number of sex trafficking crimes reported": data[state2].sexTraffickingCrimesReported,
-                      "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
+            "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
+            "Number of sex trafficking crimes reported": data[state2].sexTraffickingCrimesReported,
+            "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
           });
         }
       }
@@ -429,106 +586,115 @@ h3 {
 
 
 
-function showBar(data) {
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  function showBar(data) {
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-  var x0 = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1);
+    var x0 = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
 
-  var x1 = d3.scale.ordinal();
+    var x1 = d3.scale.ordinal();
 
-  var y = d3.scale.linear()
-      .range([height, 0]);
+    var y = d3.scale.linear()
+    .range([height, 0]);
 
-  var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-  var xAxis = d3.svg.axis()
-      .scale(x0)
-      .orient("bottom");
+    var xAxis = d3.svg.axis()
+    .scale(x0)
+    .orient("bottom");
 
-  var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left")
-      .tickFormat(d3.format(".2s"));
+    var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(d3.format(".2s"));
 
-  var svg = d3.select("#bar").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+    var svg = d3.select("#bar").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
-  console.log(keys);
-  data.forEach(function(d) {
-    d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
-  });
+    var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
+    console.log(keys);
+    data.forEach(function(d) {
+      d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
+    });
 
+<<<<<<< HEAD
+    x0.domain(data.map(function(d) { return d.State; }));
+    x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
+    y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }) + d3.max(d.data, function(d) { return d.value; })/4; })]);
+=======
   x0.domain(data.map(function(d) { return d.State; }));
   x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
-  y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }) + d3.max(d.data, function(d) { return d.value; })/4; })]);
+  y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }); })]);
+<<<<<<< HEAD
+>>>>>>> origin/gh-pages
+=======
+>>>>>>> origin/gh-pages
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+    svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
+    svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Number");
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Number");
 
-  var state = svg.selectAll(".state")
-      .data(data)
+    var state = svg.selectAll(".state")
+    .data(data)
     .enter().append("g")
-      .attr("class", "state")
-      .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
+    .attr("class", "state")
+    .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
 
-  state.selectAll("rect")
-      .data(function(d) { return d.data; })
-    .enter().append("rect")
-      .attr("width", x1.rangeBand()-50)
-      .attr("x", function(d) { return x1(d.name); })
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
-
-  state.selectAll("text")
+    state.selectAll("rect")
     .data(function(d) { return d.data; })
-  .enter().append("text")
+    .enter().append("rect")
+    .attr("width", x1.rangeBand()-50)
+    .attr("x", function(d) { return x1(d.name); })
+    .attr("y", function(d) { return y(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    .style("fill", function(d) { return color(d.name); });
+
+    state.selectAll("text")
+    .data(function(d) { return d.data; })
+    .enter().append("text")
     .attr("x", function(d) { return x1(d.name) + 30; })
     .attr("y", function(d) { return y(d.value + 1); })
     .attr("text-anchor", "middle")
     .text(function(d, i) { return d.value; });
 
 
-  var legend = svg.selectAll(".legend")
-      .data(keys.slice().reverse())
+    var legend = svg.selectAll(".legend")
+    .data(keys.slice().reverse())
     .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    .attr("class", "legend")
+    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-  legend.append("rect")
-      .attr("x", 25)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color)
+    legend.append("rect")
+    .attr("x", 25)
+    .attr("width", 18)
+    .attr("height", 18)
+    .style("fill", color)
 
-  legend.append("text")
-      .attr("x", 50)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "start")
-      .text(function(d) { return d; });
+    legend.append("text")
+    .attr("x", 50)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "start")
+    .text(function(d) { return d; });
 
-}
+  }
 </script>
 
 </body>
