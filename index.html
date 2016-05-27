@@ -490,8 +490,7 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-      data[d].color = d3.interpolate("#81CFE0 ", "#446CB3 ")(Math.sqrt(data[d].traffickingCrimesReported/130));
-
+      data[d].color = d3.interpolate("#00FFFF", "#00008B")(data[d].traffickingCrimesReported/1000);
     });
 
     /* draw states on id #statesvg */
