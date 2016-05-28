@@ -480,6 +480,7 @@ h3 {
     return "<h4>"+n+"</h4><table>"+
         
       "<tr><td>Total Crimes: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+
       "<tr><td>Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
       "<tr><td>Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
       "</table>";
@@ -504,6 +505,7 @@ h3 {
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
       data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+
     });
 
     /* draw states on id #statesvg */
