@@ -247,14 +247,14 @@ h3 {
        <option value="Male">Male</option>
        <option value="Other">Other</option>
      </select>
-     <button id="chooseGender" class="btn btn-info btn-sm">view by gender!</button>
+     <button id="chooseGender" class="btn btn-info btn-sm">view by gender</button>
 
      <h4>Select age: </h4>
      <select id='age' name="age" class='chosen-select'>
        <option value="Adult">Adult</option>
        <option value="Minor">Minor</option>
      </select>
-     <button id="chooseAge" class="btn btn-info btn-sm">view by age!</button>  
+     <button id="chooseAge" class="btn btn-info btn-sm">view by age</button>  
 
      <h4>Select two states to compare their data: </h4>
      <select id='state1' name="state1" class='chosen-select'>
@@ -365,7 +365,7 @@ h3 {
       <option value="WI">Wisconsin</option>
       <option value="WY">Wyoming</option>
     </select>
-    <button id="compare" class="btn btn-info btn-sm">compare!</button>
+    <button id="compare" class="btn btn-info btn-sm">compare</button>
   </div>
 
   <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
@@ -478,10 +478,11 @@ h3 {
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
-    "<tr><td>Total trafficking crimes reported</td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
-    "<tr><td>Number of sex trafficking crimes reported</td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-    "<tr><td>Number of forced labor crimes reported</td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
-    "</table>";
+        
+      "<tr><td>Total Crimes: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td>Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+      "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
@@ -502,7 +503,7 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-      data[d].color = d3.interpolate("#00FFFF", "#00008B")(data[d].traffickingCrimesReported/1000);
+      data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
     });
 
     /* draw states on id #statesvg */
