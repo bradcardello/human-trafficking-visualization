@@ -455,6 +455,9 @@ h3 {
           <div class="modal-body">
             <svg width="960" height="600" id="bar"></svg> <!-- svg to hold the map. -->
           </div>
+          <div class="modal-footer" style='text-align: left;'>
+            <div id='text'></div>
+          </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -486,11 +489,53 @@ h3 {
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
   function compareStates(data,state1, state2) {
     showBar(data);
+    console.log(data);
+    calculateStates(data[0], data[1]);
     var title = state1 + " VS. " + state2;
     $('.modal-title').text(title);
     $('#myModal').modal('show');
   };
 
+  /* Function to calculate the statistical differences between two states */
+  function calculateStates(state1, state2) {
+    var state1_labor = state1['Number of forced labor crimes reported'];
+    var state1_sex = state1['Number of sex trafficking crimes reported'];
+    var state1_total = state1['Total trafficking crimes reported'];
+
+    var state2_labor = state2['Number of forced labor crimes reported'];
+    var state2_sex = state2['Number of sex trafficking crimes reported'];
+    var state2_total = state2['Total trafficking crimes reported'];
+
+    var more1 = (state1_labor > state2_labor);
+    var more2 = (state1_sex > state2_sex);
+    var more3 = (state1_total > state2_total);
+
+    var p1 = Math.abs(Math.floor((state1_labor - state2_labor) / state1_labor * 100));
+    var p2 = Math.abs(Math.floor((state1_sex - state2_sex) / state1_sex * 100));
+    var p3 = Math.abs(Math.floor((state1_total - state2_total) / state1_total * 100));
+
+    var s1, s2, s3;
+    if (more1) {
+      s1 = state1.State + ' has ' + p1 + "% more forced labor crimes reported than " + state2.State;
+    } else {
+      s1 = state1.State + ' has ' + p1 + "% less forced labor crimes reported than " + state2.State;
+    }
+
+    if (more2) {
+      s2 = state1.State + ' has ' + p2 + "% more sex trafficking crimes than " + state2.State;
+    } else {
+      s2 = state1.State + ' has ' + p2 + "% less sex trafficking crimes than " + state2.State;
+    }
+
+    if (more3) {
+      s3 = state1.State + ' has ' + p3 + "% more total trafficking crimes " + state2.State;
+    } else {
+      s3 =state1.State + ' has ' + p3 + "% less total trafficking crimes " + state2.State;
+    }
+    var innerHTML = '<p>' + s1 + '</p>' + '<p>' + s2 + '</p>' + '<p>' + s3 + '</p>';
+    console.log(s1, s2, s3);
+    $('#text').html(innerHTML);
+  }
   /*In case we need to redraw the data*/
   function draw(data, selection, color1, color2) {
     var keys = Object.keys(data);
