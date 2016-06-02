@@ -206,25 +206,17 @@ h3 {
   text-align:center;
 }
 
-#gender_chosen, #age_chosen{
-  width: 150px !important;
-}
-
-#chooseGender, #chooseAge, #compare{
+#compare{
   width: 110px !important;
+}
+    
+#viewPerCapita, #viewFemale, #viewMale, #viewOther{
+  width: 303px !important;
 }
 
 #selection {
   padding: 10px;
 } 
-
-#gender_chosen, #age_chosen{
-  width: 150px !important;
-}
-
-#chooseGender, #chooseAge, #compare{
-  width: 110px !important;
-}
 
 .modal-dialog {
   width: 960px; /* New width for default modal */
@@ -240,21 +232,32 @@ h3 {
     <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <div id="selection">
+        
+      <button id="viewPerCapitaBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
 
-      <h4>Select gender: </h4>
-      <select id='gender' name="gender" class='chosen-select'>
-       <option value="Female">Female</option>
-       <option value="Male">Male</option>
-       <option value="Other">Other</option>
-     </select>
-     <button id="chooseGender" class="btn btn-info btn-sm">view by gender</button>
-
-     <h4>Select age: </h4>
-     <select id='age' name="age" class='chosen-select'>
-       <option value="Adult">Adult</option>
-       <option value="Minor">Minor</option>
-     </select>
-     <button id="chooseAge" class="btn btn-info btn-sm">view by age</button>  
+    <h4>View Data For Females: </h4>
+      <select id='viewFemale' name="viewFemale" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="femalesSex">Sex Trafficking</option>
+       <option value="femalesLabor">Forced Labor</option>
+       </select>
+     <button id="viewFemaleBtn" class="btn btn-info btn-sm">view data</button> 
+        
+    <h4>View Data For Males: </h4>
+      <select id='viewMale' name="viewMale" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="malesSex">Sex Trafficking</option>
+       <option value="malesLabor">Forced Labor</option>
+       </select>
+     <button id="viewMaleBtn" class="btn btn-info btn-sm">view data</button>
+        
+    <h4>View Data For Other Genders: </h4>
+      <select id='viewOther' name="viewOther" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="otherSex">Sex Trafficking</option>
+       <option value="otherLabor">Forced Labor</option>
+       </select>
+     <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
 
      <h4>Select two states to compare their data: </h4>
      <select id='state1' name="state1" class='chosen-select'>
@@ -380,11 +383,6 @@ h3 {
     <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-
-
-
-
-
     <div id="footer" style='margin-top: 25px'>
       <div class="container">
         <div class="row">
@@ -457,6 +455,9 @@ h3 {
           <div class="modal-body">
             <svg width="960" height="600" id="bar"></svg> <!-- svg to hold the map. -->
           </div>
+          <div class="modal-footer" style='text-align: left;'>
+            <div id='text'></div>
+          </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -479,23 +480,71 @@ h3 {
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
         
-      "<tr><td>Total Crimes: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
-
-      "<tr><td>Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+      "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
       "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
   function compareStates(data,state1, state2) {
     showBar(data);
+    console.log(data);
+    calculateStates(data[0], data[1]);
     var title = state1 + " VS. " + state2;
     $('.modal-title').text(title);
     $('#myModal').modal('show');
   };
 
+  /* Function to calculate the statistical differences between two states */
+  function calculateStates(state1, state2) {
+    var state1_labor = state1['Number of forced labor crimes reported'];
+    var state1_sex = state1['Number of sex trafficking crimes reported'];
+    var state1_total = state1['Total trafficking crimes reported'];
+
+    var state2_labor = state2['Number of forced labor crimes reported'];
+    var state2_sex = state2['Number of sex trafficking crimes reported'];
+    var state2_total = state2['Total trafficking crimes reported'];
+
+    var more1 = (state1_labor > state2_labor);
+    var more2 = (state1_sex > state2_sex);
+    var more3 = (state1_total > state2_total);
+
+    var p1 = Math.abs(Math.floor((state1_labor - state2_labor) / state1_labor * 100));
+    var p2 = Math.abs(Math.floor((state1_sex - state2_sex) / state1_sex * 100));
+    var p3 = Math.abs(Math.floor((state1_total - state2_total) / state1_total * 100));
+
+    var s1, s2, s3;
+    if (more1) {
+      s1 = state1.State + ' has ' + p1 + "% more forced labor crimes reported than " + state2.State;
+    } else {
+      s1 = state1.State + ' has ' + p1 + "% less forced labor crimes reported than " + state2.State;
+    }
+
+    if (more2) {
+      s2 = state1.State + ' has ' + p2 + "% more sex trafficking crimes than " + state2.State;
+    } else {
+      s2 = state1.State + ' has ' + p2 + "% less sex trafficking crimes than " + state2.State;
+    }
+
+    if (more3) {
+      s3 = state1.State + ' has ' + p3 + "% more total trafficking crimes " + state2.State;
+    } else {
+      s3 =state1.State + ' has ' + p3 + "% less total trafficking crimes " + state2.State;
+    }
+    var innerHTML = '<p>' + s1 + '</p>' + '<p>' + s2 + '</p>' + '<p>' + s3 + '</p>';
+    console.log(s1, s2, s3);
+    $('#text').html(innerHTML);
+  }
   /*In case we need to redraw the data*/
-  function draw(data) {
+  function draw(data, selection, color1, color2) {
+    var keys = Object.keys(data);
+    /* Interpolate color according to the numbers of tracking crime reported*/
+    keys.forEach(function(d){
+      data[d].color = d3.interpolate(color1, color2)(data[d][selection]);
+    });
+
+    /* draw states on id #statesvg */
     uStates.draw("#statesvg", data, tooltipHtml);
   }
 
@@ -505,12 +554,13 @@ h3 {
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
       data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
-
     });
 
     /* draw states on id #statesvg */
     var svg = uStates.draw("#statesvg", data, tooltipHtml);
-
+  
+    /* Helper functions for when the viewer selects a different data variable to view */
+      
     function compare() {
       var arr = [];
       var state1 = $('#state1').val(); //get value from input
@@ -544,6 +594,106 @@ h3 {
     $('#compare').click(function(){
       compare();
     });
+      
+    function viewPerCapita() {
+      $('#viewFemale').val("noSelection").trigger("chosen:updated");
+      $('#viewMale').val("noSelection").trigger("chosen:updated");
+      $('#viewOther').val("noSelection").trigger("chosen:updated");
+
+      var keys = Object.keys(data);
+      /* Interpolate color according to the numbers of tracking crime reported*/
+      keys.forEach(function(d){
+        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+      });
+
+      /* draw states on id #statesvg */
+      var svg = uStates.draw("#statesvg", data, tooltipHtml);
+
+      /* draw states on id #statesvg */
+      uStates.draw("#statesvg", data, tooltipHtml);
+    }
+    // Add listener to compare button, to compare states
+    $('#viewPerCapitaBtn').click(function(){
+      viewPerCapita();
+    });
+      
+    function viewFemale() {
+      var selection = $('#viewFemale').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewMale').val("noSelection").trigger("chosen:updated");
+        $('#viewOther').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          if (selection == "femalesSex"){
+            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/1000));
+          }
+          else{
+            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/200));
+          }
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewFemaleBtn').click(function(){
+      viewFemale();
+    });
+      
+    function viewMale() {
+      var selection = $('#viewMale').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+        $('#viewOther').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection])/10);
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewMaleBtn').click(function(){
+      viewMale();
+    });
+      
+    function viewOther() {
+      var selection = $('#viewOther').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+        $('#viewMale').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection])/10);
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewOtherBtn').click(function(){
+      viewOther();
+    });
+      
   });
 
 
