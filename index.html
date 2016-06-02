@@ -709,7 +709,7 @@ h3 {
     var x1 = d3.scale.ordinal();
 
     var y = d3.scale.linear()
-    .range([height, 0]);
+    .range([0, height]);
 
     var color = d3.scale.ordinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
@@ -760,23 +760,29 @@ h3 {
     .attr("class", "state")
     .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
 
+    console.log("height: " + height);
+
     state.selectAll("rect")
     .data(function(d) { return d.data; })
-    .enter().append("rect")
+    .enter()
+    .append("rect")
     .attr("width", x1.rangeBand()-50)
     .attr("x", function(d) { return x1(d.name); })
-    .attr("y", function(d) { return y(d.value); })
-    .attr("height", function(d) { return height - y(d.value); })
+    .attr("y", height)
+    .attr("height", 0)
+    .transition()
+    .delay(function (d, i) { return i * 700; })
+    .attr("y", function(d, i) {return height - y(d.value);})
+    .attr("height", function(d) { return y(d.value)})
     .style("fill", function(d) { return color(d.name); });
 
     state.selectAll("text")
     .data(function(d) { return d.data; })
     .enter().append("text")
     .attr("x", function(d) { return x1(d.name) + 30; })
-    .attr("y", function(d) { return y(d.value + 1); })
+    .attr("y", function(d) { return height - y(d.value + 1); })
     .attr("text-anchor", "middle")
     .text(function(d, i) { return d.value; });
-
 
     var legend = svg.selectAll(".legend")
     .data(keys.slice().reverse())
