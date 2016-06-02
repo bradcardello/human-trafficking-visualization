@@ -4,145 +4,318 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
 <style>
+  .foot-links a, .foot-links p{
+    display: block;
+    color: rgb(63, 63, 63);
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    font-family: OpenSansRegular, Arial, sans-serif;
+    font-size: 13px;
+    color: rgb(63, 63, 63);
+    padding-bottom: 5px;
+    text-shadow: rgb(255, 255, 255) 1px 1px 0px;
+
+  }
+  .foot-links img{
+    padding-top: 5px;
+  }
+  #footer{
+    background: rgb(241, 241, 241);
+    border-top: 1px solid rgb(222, 222, 222);
+    margin-top: -2px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .foot-header{
+    font-family: OpenSansBold, Arial, sans-serif;
+    font-size: 18px;
+    color: rgb(63, 63, 63);
+    padding-bottom: 20px;
+    text-shadow: rgb(255, 255, 255) 1px 1px 0px;
+  }
+  
+  #footer .container{
+    max-width: 1100px;
+  }
+  #bottom-footer{
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #bottom-footer a{
+    text-decoration: none;
+    color: #626262;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    font-size: 12px;
+    padding: 0px 15px;
+    border-right: 1px solid #ccc;
+    font-family: 'OpenSansRegular', Arial, sans-serif;
+    font-size: 13px;
+    color: #626262;
+    padding: 0 12px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,1);
+  }
+  #bottom-footer .phone img{
+    margin-right: 7px;
+  }
+  #bottom-footer .phone .red{
+    font-size: 22px;
+    margin-top: -7px;
+    font-family: 'OpenSansRegular', Arial, sans-serif;
+    font-size: 18px!important;
+    color: #d10029!important;
+    position: relative;
+    top: -5px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,1)!important;
+  }
+  #bottom-footer .phone .red small{
+    font-family: 'OpenSansRegular', Arial, sans-serif;
+    font-size: 12px!important;
+    display: block;
+    color: #626262!important;
+    text-shadow: 1px 1px 0 rgba(255,255,255,1)!important;
+    margin-top: -5px;
+  }
+  #final-footer{
+    font-size: 11px;
+    color: #666;
+  }
+  #final-footer i{
+    font-size: auto;
+  }
 
 
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
 }
 
-.bar {
-  fill: steelblue;
+.info {
+  width: 1400px;
+  height: 130px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 30px;
+  padding-bottom: 0px;
+
 }
 
+.infotwo {
+  width: 1400px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 0px;
+
+}
+#classinfo {
+  float: left;
+  width: 390px;
+  height: 100%;
+  padding-top: 0px;
+  padding-left: 50px;
+
+}
+#filesubmitted {
+  float: left;
+  width: 390px;
+  height: 100%;
+  padding-left: 60px;
+
+}
+#data {
+  float: left;
+  width: 250px;
+  height: 100%;
+  padding-left: 50px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+}
+
+#code {
+  float: left;
+  width: 390px;
+  height: 100%;
+  padding-left: 200px;
+  padding-right: 0px;
+  padding-bottom: 30px;
+}
+h3 {
+  font-size: 15px;
+}
 .x.axis path {
   display: none;
 }
 
-  .state{
-    fill: none;
-    stroke: #a9a9a9;
-    stroke-width: 1;
-  }
-  .state:hover{
-    fill-opacity:0.5;
-  }
-  #tooltip {   
-    position: absolute;           
-    text-align: center;
-    padding: 20px;             
-    margin: 10px;
-    font: 12px sans-serif;        
-    background: lightsteelblue;   
-    border: 1px;      
-    border-radius: 2px;           
-    pointer-events: none;         
-  }
-  #tooltip h4{
-    margin:0;
-    font-size:14px;
-  }
-  #tooltip{
-    background:rgba(0,0,0,0.9);
-    border:1px solid grey;
-    border-radius:5px;
-    font-size:12px;
-    width:auto;
-    padding:4px;
-    color:white;
-    opacity:0;
-  }
-  #tooltip table{
-    table-layout:fixed;
-  }
-  #tooltip tr td{
-    padding:0;
-    margin:0;
-  }
-  #tooltip tr td:nth-child(1){
-    width:150px;
-  }
-  #tooltip tr td:nth-child(2){
-    text-align:center;
-  }
+.state{
+  fill: none;
+  stroke: #a9a9a9;
+  stroke-width: 1;
+}
+.state:hover{
+  fill-opacity:0.5;
+}
+#tooltip {   
+  position: absolute;           
+  text-align: center;
+  padding: 20px;             
+  margin: 10px;
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 1px;      
+  border-radius: 2px;           
+  pointer-events: none;         
+}
+#tooltip h4{
+  margin:0;
+  font-size:14px;
+}
+#tooltip{
+  background:rgba(0,0,0,0.9);
+  border:1px solid grey;
+  border-radius:5px;
+  font-size:12px;
+  width:auto;
+  padding:4px;
+  color:white;
+  opacity:0;
+}
+#tooltip table{
+  table-layout:fixed;
+}
+#tooltip tr td{
+  padding:0;
+  margin:0;
+}
+#tooltip tr td:nth-child(1){
+  width:150px;
+}
+#tooltip tr td:nth-child(2){
+  text-align:center;
+}
 
-  #selection {
-    padding: 10px;
-  }
+#compare{
+  width: 110px !important;
+}
+    
+#viewPerCapita, #viewFemale, #viewMale, #viewOther{
+  width: 303px !important;
+}
+
+#selection {
+  padding: 10px;
+} 
 
 .modal-dialog {
-          width: 960px; /* New width for default modal */
-        }
+  width: 960px; /* New width for default modal */
+}
 
 </style>
 <body>
   <div class="container">
-  <div id="tooltip"></div><!-- div to hold tooltip. -->
-  <div class="page-header">
-    <h1>Human Trafficking: Sex Trafficking and Forced Labor</h1>
-  </div>
-  <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div id="selection">
-    <h4>Select two states to compare their data: </h4>
-    <select id='state1' name="state1" class='chosen-select'>
-     <option value="AL">Alabama</option>
-     <option value="AK">Alaska</option>
-     <option value="AZ">Arizona</option>
-     <option value="AR">Arkansas</option>
-     <option value="CA">California</option>
-     <option value="CO">Colorado</option>
-     <option value="CT">Connecticut</option>
-     <option value="DE">Delaware</option>
-     <option value="DC">District Of Columbia</option>
-     <option value="FL">Florida</option>
-     <option value="GA">Georgia</option>
-     <option value="HI">Hawaii</option>
-     <option value="ID">Idaho</option>
-     <option value="IL">Illinois</option>
-     <option value="IN">Indiana</option>
-     <option value="IA">Iowa</option>
-     <option value="KS">Kansas</option>
-     <option value="KY">Kentucky</option>
-     <option value="LA">Louisiana</option>
-     <option value="ME">Maine</option>
-     <option value="MD">Maryland</option>
-     <option value="MA">Massachusetts</option>
-     <option value="MI">Michigan</option>
-     <option value="MN">Minnesota</option>
-     <option value="MS">Mississippi</option>
-     <option value="MO">Missouri</option>
-     <option value="MT">Montana</option>
-     <option value="NE">Nebraska</option>
-     <option value="NV">Nevada</option>
-     <option value="NH">New Hampshire</option>
-     <option value="NJ">New Jersey</option>
-     <option value="NM">New Mexico</option>
-     <option value="NY">New York</option>
-     <option value="NC">North Carolina</option>
-     <option value="ND">North Dakota</option>
-     <option value="OH">Ohio</option>
-     <option value="OK">Oklahoma</option>
-     <option value="OR">Oregon</option>
-     <option value="PA">Pennsylvania</option>
-     <option value="RI">Rhode Island</option>
-     <option value="SC">South Carolina</option>
-     <option value="SD">South Dakota</option>
-     <option value="TN">Tennessee</option>
-     <option value="TX">Texas</option>
-     <option value="UT">Utah</option>
-     <option value="VT">Vermont</option>
-     <option value="VA">Virginia</option>
-     <option value="WA">Washington</option>
-     <option value="WV">West Virginia</option>
-     <option value="WI">Wisconsin</option>
-     <option value="WY">Wyoming</option>
-    </select>
+    <div id="tooltip"></div><!-- div to hold tooltip. -->
+    <div class="page-header">
+      <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
+    </div>
+    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
 
-    <select id='state2' name="state2" class="chosen-select">
+    <div id="selection">
+        
+      <button id="viewPerCapitaBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
+
+    <h4>View Data For Females: </h4>
+      <select id='viewFemale' name="viewFemale" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="femalesSex">Sex trade</option>
+       <option value="femalesLabor">Forced Labor</option>
+       </select>
+     <button id="viewFemaleBtn" class="btn btn-info btn-sm">view data</button> 
+        
+    <h4>View Data For Males: </h4>
+      <select id='viewMale' name="viewMale" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="malesSex">Sex trade</option>
+       <option value="malesLabor">Forced Labor</option>
+       </select>
+     <button id="viewMaleBtn" class="btn btn-info btn-sm">view data</button>
+        
+    <h4>View Data For Other Genders: </h4>
+      <select id='viewOther' name="viewOther" class='chosen-select'>
+       <option value="noSelection"></option>
+       <option value="otherSex">Sex trade</option>
+       <option value="otherLabor">Forced Labor</option>
+       </select>
+     <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
+
+     <h4>Select two states to compare their data: </h4>
+     <select id='state1' name="state1" class='chosen-select'>
+       <option value="AL">Alabama</option>
+       <option value="AK">Alaska</option>
+       <option value="AZ">Arizona</option>
+       <option value="AR">Arkansas</option>
+       <option value="CA">California</option>
+       <option value="CO">Colorado</option>
+       <option value="CT">Connecticut</option>
+       <option value="DE">Delaware</option>
+       <option value="DC">District Of Columbia</option>
+       <option value="FL">Florida</option>
+       <option value="GA">Georgia</option>
+       <option value="HI">Hawaii</option>
+       <option value="ID">Idaho</option>
+       <option value="IL">Illinois</option>
+       <option value="IN">Indiana</option>
+       <option value="IA">Iowa</option>
+       <option value="KS">Kansas</option>
+       <option value="KY">Kentucky</option>
+       <option value="LA">Louisiana</option>
+       <option value="ME">Maine</option>
+       <option value="MD">Maryland</option>
+       <option value="MA">Massachusetts</option>
+       <option value="MI">Michigan</option>
+       <option value="MN">Minnesota</option>
+       <option value="MS">Mississippi</option>
+       <option value="MO">Missouri</option>
+       <option value="MT">Montana</option>
+       <option value="NE">Nebraska</option>
+       <option value="NV">Nevada</option>
+       <option value="NH">New Hampshire</option>
+       <option value="NJ">New Jersey</option>
+       <option value="NM">New Mexico</option>
+       <option value="NY">New York</option>
+       <option value="NC">North Carolina</option>
+       <option value="ND">North Dakota</option>
+       <option value="OH">Ohio</option>
+       <option value="OK">Oklahoma</option>
+       <option value="OR">Oregon</option>
+       <option value="PA">Pennsylvania</option>
+       <option value="RI">Rhode Island</option>
+       <option value="SC">South Carolina</option>
+       <option value="SD">South Dakota</option>
+       <option value="TN">Tennessee</option>
+       <option value="TX">Texas</option>
+       <option value="UT">Utah</option>
+       <option value="VT">Vermont</option>
+       <option value="VA">Virginia</option>
+       <option value="WA">Washington</option>
+       <option value="WV">West Virginia</option>
+       <option value="WI">Wisconsin</option>
+       <option value="WY">Wyoming</option>
+     </select>
+
+     <select id='state2' name="state2" class="chosen-select">
+
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>
@@ -195,90 +368,176 @@
       <option value="WI">Wisconsin</option>
       <option value="WY">Wyoming</option>
     </select>
-    <button id="compare" class="btn btn-info btn-sm">compare!</button>
+    <button id="compare" class="btn btn-info btn-sm">compare</button>
   </div>
 
   <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
   <h2>What Can You Do to Stop Human Trafficking?</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <hr>
-      <div id = "class-info" style = "list-style: none;">
-        <h2> Created For:</h2>
-            <li>CMPS 165</li>
-            <li>Data Programming for Visualization</li>
-            <li>Spring 2016</li>
-            <li>Suresh K. Lodha</li>      
-     </div>
-      
-      <div id = "submitted-files" style="list-style: none;">
-       <h2>Files Submitted</h2>
-           <li>uStates.js</li>
-           <li>README.MD</li>
-           <li>index.html</li>
-           <li>data.json</li>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+
+
+    <div id="footer" style='margin-top: 25px'>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-3">
+            <div class="foot-header">
+              Created:
+            </div>
+            <div class="foot-links">
+              <p>CMPS 165</p>
+              <p>Data Programming for Visualization</p>
+              <p>Spring 2016</p>
+              <p>Suresh K. Lodha</p>
+              <p>Ryan Brounley</p>
+            </div>
+          </div><!--/col-sm-3-->
+
+          <div class="col-sm-3">
+            <div class="foot-header">
+              Files:
+            </div>
+            <div class="foot-links">
+              <p>index.html
+              </p>
+              <p>
+                data.json
+              </p>
+              <p>
+                uStates.js
+              </p>
+              <p>README</p>
+            </div>
+          </div><!--/col-sm-3-->
+          <div class="col-sm-3">
+          <div class="foot-header"> Data Sources:</div>
+            <div class="foot-links">
+              <a href="http://traffickingresourcecenter.org/resources" target="_blank">Trafficking Resource Center</a></li>
+
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="foot-header"> Code Sources:</div>
+            <div class="foot-links">
+              <a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">NPashap</a>
+              <a href="https://bl.ocks.org/mbostock/3887051" target="_blank">Mike Bostock</a>        
+              <a href="http://getbootstrap.com/javascript/#modals" target="_blank">Bootstrap</a>
+              <a href="https://harvesthq.github.io/chosen/" target="_blank">Chosen</a>
+            </div>
+          </div>
+        </div><!--/container-->
+      </div><!--/footer-->
+
+
+      <div class="container">
+        <p class="text-center">&copy; 2016 <i class="fa fa-heart"></i>Ibrahim Altaweel, Brad Cardello, Breket Haile, and Douglas Silva </p>
       </div>
-      
-      <div id = "resource" style="list-style: none;">
-        <h2>Resource</h2>
-           <li><a href ="http://traffickingresourcecenter.org/resources" target="blank"></a></li>
-      </div>
-  <footer class="footer">
-    <div class="container">
-      <p class="text-center">&copy; 2016 <i class="fa fa-heart"></i>Ibrahim Altaweel, Brad Cardello , Breket Haile, and Douglas Silva | CMPS165</p>
     </div>
-  </footer>
-  <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"></h4>
-        </div>
-        <div class="modal-body">
-          <svg width="960" height="600" id="bar"></svg> <!-- svg to hold the map. -->
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-</div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="uStates.js"></script> <!-- creates uStates. -->
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
-<script>
+    <div id="push"></div>
 
-  /*Clear the modal #bar graph html on close so that next one starts with a clean state*/
-  $('#myModal').on('hidden.bs.modal', function () {
-    $('#bar').html("");
-  })
-  // Initiaze chosen library for better option selection
+ <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <svg width="960" height="600" id="bar"></svg> <!-- svg to hold the map. -->
+          </div>
+          <div class="modal-footer" style='text-align: left;'>
+            <div id='text'></div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="uStates.js"></script> <!-- creates uStates. -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
+    <script>
+
+      /*Clear the modal #bar graph html on close so that next one starts with a clean state*/
+      $('#myModal').on('hidden.bs.modal', function () {
+        $('#bar').html("");
+      })
+
+  // Initialize chosen library for better option selection
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
-      "<tr><td>Total trafficking crimes reported</td><td>"+(d.traffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Number of sex trafficking crimes reported</td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Number of forced labor crimes reported</td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+        
+      "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+      "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
       "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
   function compareStates(data,state1, state2) {
     showBar(data);
+    console.log(data);
+    calculateStates(data[0], data[1]);
     var title = state1 + " VS. " + state2;
     $('.modal-title').text(title);
     $('#myModal').modal('show');
   };
 
+  /* Function to calculate the statistical differences between two states */
+  function calculateStates(state1, state2) {
+    var state1_labor = state1['Number of forced labor crimes reported'];
+    var state1_sex = state1['Number of sex trade crimes reported'];
+    var state1_total = state1['Total trafficking crimes reported'];
+
+    var state2_labor = state2['Number of forced labor crimes reported'];
+    var state2_sex = state2['Number of sex trade crimes reported'];
+    var state2_total = state2['Total trafficking crimes reported'];
+
+    var more1 = (state1_labor > state2_labor);
+    var more2 = (state1_sex > state2_sex);
+    var more3 = (state1_total > state2_total);
+
+    var p1 = Math.abs(Math.floor((state1_labor - state2_labor) / state1_labor * 100));
+    var p2 = Math.abs(Math.floor((state1_sex - state2_sex) / state1_sex * 100));
+    var p3 = Math.abs(Math.floor((state1_total - state2_total) / state1_total * 100));
+
+    var s1, s2, s3;
+    if (more1) {
+      s1 = state1.State + ' has ' + p1 + "% more forced labor crimes reported than " + state2.State;
+    } else {
+      s1 = state1.State + ' has ' + p1 + "% less forced labor crimes reported than " + state2.State;
+    }
+
+    if (more2) {
+      s2 = state1.State + ' has ' + p2 + "% more sex trade crimes than " + state2.State;
+    } else {
+      s2 = state1.State + ' has ' + p2 + "% less sex trade crimes than " + state2.State;
+    }
+
+    if (more3) {
+      s3 = state1.State + ' has ' + p3 + "% more total trafficking crimes " + state2.State;
+    } else {
+      s3 =state1.State + ' has ' + p3 + "% less total trafficking crimes " + state2.State;
+    }
+    var innerHTML = '<p>' + s1 + '</p>' + '<p>' + s2 + '</p>' + '<p>' + s3 + '</p>';
+    console.log(s1, s2, s3);
+    $('#text').html(innerHTML);
+  }
   /*In case we need to redraw the data*/
-  function draw(data) {
+  function draw(data, selection, color1, color2) {
+    var keys = Object.keys(data);
+    /* Interpolate color according to the numbers of tracking crime reported*/
+    keys.forEach(function(d){
+      data[d].color = d3.interpolate(color1, color2)(data[d][selection]);
+    });
+
+    /* draw states on id #statesvg */
     uStates.draw("#statesvg", data, tooltipHtml);
   }
 
@@ -287,14 +546,14 @@
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-      data[d].color = d3.interpolate("#00FFFF", "#380474")(data[d].traffickingCrimesReported/1000);
-      console.log(d + " | " + data[d].traffickingCrimesReported + ": " + data[d].color);
-
+      data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
     });
 
     /* draw states on id #statesvg */
     var svg = uStates.draw("#statesvg", data, tooltipHtml);
-
+  
+    /* Helper functions for when the viewer selects a different data variable to view */
+      
     function compare() {
       var arr = [];
       var state1 = $('#state1').val(); //get value from input
@@ -308,16 +567,16 @@
       for (var i = 0; i < length; i++) {
         if (keys[i] == state1){
           arr.push({"State": d3.select('#' + state1).attr("name"),
-                      "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
-                      "Number of sex trafficking crimes reported": data[state1].sexTraffickingCrimesReported,
-                      "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
-                    });
+            "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
+            "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
+            "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
+          });
         }
         if (keys[i] == state2){
           arr.push({"State": d3.select('#' + state2).attr("name"),
-                      "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
-                      "Number of sex trafficking crimes reported": data[state2].sexTraffickingCrimesReported,
-                      "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
+            "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
+            "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
+            "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
           });
         }
       }
@@ -328,110 +587,216 @@
     $('#compare').click(function(){
       compare();
     });
+      
+    function viewPerCapita() {
+      $('#viewFemale').val("noSelection").trigger("chosen:updated");
+      $('#viewMale').val("noSelection").trigger("chosen:updated");
+      $('#viewOther').val("noSelection").trigger("chosen:updated");
+
+      var keys = Object.keys(data);
+      /* Interpolate color according to the numbers of tracking crime reported*/
+      keys.forEach(function(d){
+        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+      });
+
+      /* draw states on id #statesvg */
+      var svg = uStates.draw("#statesvg", data, tooltipHtml);
+
+      /* draw states on id #statesvg */
+      uStates.draw("#statesvg", data, tooltipHtml);
+    }
+    // Add listener to compare button, to compare states
+    $('#viewPerCapitaBtn').click(function(){
+      viewPerCapita();
+    });
+      
+    function viewFemale() {
+      var selection = $('#viewFemale').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewMale').val("noSelection").trigger("chosen:updated");
+        $('#viewOther').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          if (selection == "femalesSex"){
+            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/1000));
+          }
+          else{
+            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/200));
+          }
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewFemaleBtn').click(function(){
+      viewFemale();
+    });
+      
+    function viewMale() {
+      var selection = $('#viewMale').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+        $('#viewOther').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection])/10);
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewMaleBtn').click(function(){
+      viewMale();
+    });
+      
+    function viewOther() {
+      var selection = $('#viewOther').val();
+      if (selection == "noSelection"){
+        return;
+      }
+      else{
+        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+        $('#viewMale').val("noSelection").trigger("chosen:updated");
+        
+        var keys = Object.keys(data);
+        /* Interpolate color according to the numbers of tracking crime reported*/
+        keys.forEach(function(d){
+          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection])/10);
+        });
+        
+        /* draw states on id #statesvg */
+        uStates.draw("#statesvg", data, tooltipHtml);
+      }
+    }
+    // Add listener to compare button, to compare states
+    $('#viewOtherBtn').click(function(){
+      viewOther();
+    });
+      
   });
 
 
 
-function showBar(data) {
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  function showBar(data) {
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-  var x0 = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1);
+    var x0 = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
 
-  var x1 = d3.scale.ordinal();
+    var x1 = d3.scale.ordinal();
 
-  var y = d3.scale.linear()
-      .range([height, 0]);
+    var y = d3.scale.linear()
+    .range([0, height]);
 
-  var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-  var xAxis = d3.svg.axis()
-      .scale(x0)
-      .orient("bottom");
+    var xAxis = d3.svg.axis()
+    .scale(x0)
+    .orient("bottom");
 
-  var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left")
-      .tickFormat(d3.format(".2s"));
+    var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(d3.format(".2s"));
 
-  var svg = d3.select("#bar").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+    var svg = d3.select("#bar").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
-  console.log(keys);
-  data.forEach(function(d) {
-    d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
-  });
+    var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
+    console.log(keys);
+    data.forEach(function(d) {
+      d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
+    });
 
-  x0.domain(data.map(function(d) { return d.State; }));
-  x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
-  y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }); })]);
+    x0.domain(data.map(function(d) { return d.State; }));
+    x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
+    y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }) + d3.max(d.data, function(d) { return d.value; })/4; })]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+    svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
+    svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Number");
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Number");
 
-  var state = svg.selectAll(".state")
-      .data(data)
+    var state = svg.selectAll(".state")
+    .data(data)
     .enter().append("g")
-      .attr("class", "state")
-      .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
+    .attr("class", "state")
+    .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
 
-  state.selectAll("rect")
-      .data(function(d) { return d.data; })
-    .enter().append("rect")
-      .attr("width", x1.rangeBand()-50)
-      .attr("x", function(d) { return x1(d.name); })
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+    console.log("height: " + height);
 
-  state.selectAll("text")
+    state.selectAll("rect")
     .data(function(d) { return d.data; })
-  .enter().append("text")
+    .enter()
+    .append("rect")
+    .attr("width", x1.rangeBand()-50)
+    .attr("x", function(d) { return x1(d.name); })
+    .attr("y", height)
+    .attr("height", 0)
+    .transition()
+    .delay(function (d, i) { return i * 700; })
+    .attr("y", function(d, i) {return height - y(d.value);})
+    .attr("height", function(d) { return y(d.value)})
+    .style("fill", function(d) { return color(d.name); });
+
+    state.selectAll("text")
+    .data(function(d) { return d.data; })
+    .enter().append("text")
     .attr("x", function(d) { return x1(d.name) + 30; })
-    .attr("y", function(d) { return y(d.value + 1); })
+    .attr("y", function(d) { return height - y(d.value + 1); })
     .attr("text-anchor", "middle")
     .text(function(d, i) { return d.value; });
 
-
-  var legend = svg.selectAll(".legend")
-      .data(keys.slice().reverse())
+    var legend = svg.selectAll(".legend")
+    .data(keys.slice().reverse())
     .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    .attr("class", "legend")
+    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-  legend.append("rect")
-      .attr("x", 25)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color)
+    legend.append("rect")
+    .attr("x", 25)
+    .attr("width", 18)
+    .attr("height", 18)
+    .style("fill", color)
 
-  legend.append("text")
-      .attr("x", 50)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "start")
-      .text(function(d) { return d; });
+    legend.append("text")
+    .attr("x", 50)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "start")
+    .text(function(d) { return d; });
 
-}
+  }
 </script>
 
 </body>
