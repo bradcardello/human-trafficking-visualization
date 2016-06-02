@@ -209,7 +209,7 @@ h3 {
 #compare{
   width: 110px !important;
 }
-    
+
 #viewPerCapita, #viewFemale, #viewMale, #viewOther{
   width: 303px !important;
 }
@@ -229,34 +229,36 @@ h3 {
     <div class="page-header">
       <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
     </div>
-    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
+    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex and labor slave happens in border states such as California, Texas, Florida and North Dakota. And, surprisingly some of Mideast states are the main hubs for human trafficking .
+
+    </p>
 
     <div id="selection">
-        
+      
       <button id="viewPerCapitaBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
 
-    <h4>View Data For Females: </h4>
+      <h4>View Data For Females: </h4>
       <select id='viewFemale' name="viewFemale" class='chosen-select'>
        <option value="noSelection"></option>
        <option value="femalesSex">Sex trade</option>
        <option value="femalesLabor">Forced Labor</option>
-       </select>
+     </select>
      <button id="viewFemaleBtn" class="btn btn-info btn-sm">view data</button> 
-        
-    <h4>View Data For Males: </h4>
-      <select id='viewMale' name="viewMale" class='chosen-select'>
+     
+     <h4>View Data For Males: </h4>
+     <select id='viewMale' name="viewMale" class='chosen-select'>
        <option value="noSelection"></option>
        <option value="malesSex">Sex trade</option>
        <option value="malesLabor">Forced Labor</option>
-       </select>
+     </select>
      <button id="viewMaleBtn" class="btn btn-info btn-sm">view data</button>
-        
-    <h4>View Data For Other Genders: </h4>
-      <select id='viewOther' name="viewOther" class='chosen-select'>
+     
+     <h4>View Data For Other Genders: </h4>
+     <select id='viewOther' name="viewOther" class='chosen-select'>
        <option value="noSelection"></option>
        <option value="otherSex">Sex trade</option>
        <option value="otherLabor">Forced Labor</option>
-       </select>
+     </select>
      <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
 
      <h4>Select two states to compare their data: </h4>
@@ -374,7 +376,8 @@ h3 {
   <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
   <h2>What Can You Do to Stop Human Trafficking?</h2>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+  <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
+    Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
 
 
     <div id="footer" style='margin-top: 25px'>
@@ -411,7 +414,7 @@ h3 {
             </div>
           </div><!--/col-sm-3-->
           <div class="col-sm-3">
-          <div class="foot-header"> Data Sources:</div>
+            <div class="foot-header"> Data Sources:</div>
             <div class="foot-links">
               <a href="http://traffickingresourcecenter.org/resources" target="_blank">Trafficking Resource Center</a></li>
 
@@ -438,7 +441,7 @@ h3 {
 
     <div id="push"></div>
 
- <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
+    <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -472,11 +475,11 @@ h3 {
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
-        
-      "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
-      "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-      "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
-      "</table>";
+    
+    "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+    "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
+    "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
+    "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
@@ -551,9 +554,9 @@ h3 {
 
     /* draw states on id #statesvg */
     var svg = uStates.draw("#statesvg", data, tooltipHtml);
-  
+    
     /* Helper functions for when the viewer selects a different data variable to view */
-      
+    
     function compare() {
       var arr = [];
       var state1 = $('#state1').val(); //get value from input
@@ -587,7 +590,7 @@ h3 {
     $('#compare').click(function(){
       compare();
     });
-      
+    
     function viewPerCapita() {
       $('#viewFemale').val("noSelection").trigger("chosen:updated");
       $('#viewMale').val("noSelection").trigger("chosen:updated");
@@ -609,7 +612,7 @@ h3 {
     $('#viewPerCapitaBtn').click(function(){
       viewPerCapita();
     });
-      
+    
     function viewFemale() {
       var selection = $('#viewFemale').val();
       if (selection == "noSelection"){
@@ -638,7 +641,7 @@ h3 {
     $('#viewFemaleBtn').click(function(){
       viewFemale();
     });
-      
+    
     function viewMale() {
       var selection = $('#viewMale').val();
       if (selection == "noSelection"){
@@ -662,7 +665,7 @@ h3 {
     $('#viewMaleBtn').click(function(){
       viewMale();
     });
-      
+    
     function viewOther() {
       var selection = $('#viewOther').val();
       if (selection == "noSelection"){
@@ -686,117 +689,117 @@ h3 {
     $('#viewOtherBtn').click(function(){
       viewOther();
     });
-      
+    
   });
 
 
 
-  function showBar(data) {
-    var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+function showBar(data) {
+  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
 
-    var x0 = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+  var x0 = d3.scale.ordinal()
+  .rangeRoundBands([0, width], .1);
 
-    var x1 = d3.scale.ordinal();
+  var x1 = d3.scale.ordinal();
 
-    var y = d3.scale.linear()
-    .range([0, height]);
+  var y = d3.scale.linear()
+  .range([0, height]);
 
-    var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+  var color = d3.scale.ordinal()
+  .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-    var xAxis = d3.svg.axis()
-    .scale(x0)
-    .orient("bottom");
+  var xAxis = d3.svg.axis()
+  .scale(x0)
+  .orient("bottom");
 
-    var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(d3.format(".2s"));
+  var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .tickFormat(d3.format(".2s"));
 
-    var svg = d3.select("#bar").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var svg = d3.select("#bar").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
-    console.log(keys);
-    data.forEach(function(d) {
-      d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
-    });
+  var keys = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
+  console.log(keys);
+  data.forEach(function(d) {
+    d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
+  });
 
-    x0.domain(data.map(function(d) { return d.State; }));
-    x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
-    y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }) + d3.max(d.data, function(d) { return d.value; })/4; })]);
+  x0.domain(data.map(function(d) { return d.State; }));
+  x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
+  y.domain([0, d3.max(data, function(d) { return d3.max(d.data, function(d) { return d.value; }) + d3.max(d.data, function(d) { return d.value; })/4; })]);
 
-    svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+  svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
 
-    svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis)
-    .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("Number");
+  svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("y", 6)
+  .attr("dy", ".71em")
+  .style("text-anchor", "end")
+  .text("Number");
 
-    var state = svg.selectAll(".state")
-    .data(data)
-    .enter().append("g")
-    .attr("class", "state")
-    .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
+  var state = svg.selectAll(".state")
+  .data(data)
+  .enter().append("g")
+  .attr("class", "state")
+  .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; });
 
-    console.log("height: " + height);
+  console.log("height: " + height);
 
-    state.selectAll("rect")
-    .data(function(d) { return d.data; })
-    .enter()
-    .append("rect")
-    .attr("width", x1.rangeBand()-50)
-    .attr("x", function(d) { return x1(d.name); })
-    .attr("y", height)
-    .attr("height", 0)
-    .transition()
-    .delay(function (d, i) { return i * 700; })
-    .attr("y", function(d, i) {return height - y(d.value);})
-    .attr("height", function(d) { return y(d.value)})
-    .style("fill", function(d) { return color(d.name); });
+  state.selectAll("rect")
+  .data(function(d) { return d.data; })
+  .enter()
+  .append("rect")
+  .attr("width", x1.rangeBand()-50)
+  .attr("x", function(d) { return x1(d.name); })
+  .attr("y", height)
+  .attr("height", 0)
+  .transition()
+  .delay(function (d, i) { return i * 700; })
+  .attr("y", function(d, i) {return height - y(d.value);})
+  .attr("height", function(d) { return y(d.value)})
+  .style("fill", function(d) { return color(d.name); });
 
-    state.selectAll("text")
-    .data(function(d) { return d.data; })
-    .enter().append("text")
-    .attr("x", function(d) { return x1(d.name) + 30; })
-    .attr("y", function(d) { return height - y(d.value + 1); })
-    .attr("text-anchor", "middle")
-    .text(function(d, i) { return d.value; });
+  state.selectAll("text")
+  .data(function(d) { return d.data; })
+  .enter().append("text")
+  .attr("x", function(d) { return x1(d.name) + 30; })
+  .attr("y", function(d) { return height - y(d.value + 1); })
+  .attr("text-anchor", "middle")
+  .text(function(d, i) { return d.value; });
 
-    var legend = svg.selectAll(".legend")
-    .data(keys.slice().reverse())
-    .enter().append("g")
-    .attr("class", "legend")
-    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+  var legend = svg.selectAll(".legend")
+  .data(keys.slice().reverse())
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-    legend.append("rect")
-    .attr("x", 25)
-    .attr("width", 18)
-    .attr("height", 18)
-    .style("fill", color)
+  legend.append("rect")
+  .attr("x", 25)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", color)
 
-    legend.append("text")
-    .attr("x", 50)
-    .attr("y", 9)
-    .attr("dy", ".35em")
-    .style("text-anchor", "start")
-    .text(function(d) { return d; });
+  legend.append("text")
+  .attr("x", 50)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d) { return d; });
 
-  }
+}
 </script>
 
 </body>
