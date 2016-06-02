@@ -227,10 +227,10 @@ h3 {
   <div class="container">
     <div id="tooltip"></div><!-- div to hold tooltip. -->
     <div class="page-header">
-      <h1>Human Trafficking: Sex Trafficking and Forced Labor</h1>
+      <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
     </div>
     <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
     <div id="selection">
         
       <button id="viewPerCapitaBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
@@ -238,7 +238,7 @@ h3 {
     <h4>View Data For Females: </h4>
       <select id='viewFemale' name="viewFemale" class='chosen-select'>
        <option value="noSelection"></option>
-       <option value="femalesSex">Sex Trafficking</option>
+       <option value="femalesSex">Sex trade</option>
        <option value="femalesLabor">Forced Labor</option>
        </select>
      <button id="viewFemaleBtn" class="btn btn-info btn-sm">view data</button> 
@@ -246,7 +246,7 @@ h3 {
     <h4>View Data For Males: </h4>
       <select id='viewMale' name="viewMale" class='chosen-select'>
        <option value="noSelection"></option>
-       <option value="malesSex">Sex Trafficking</option>
+       <option value="malesSex">Sex trade</option>
        <option value="malesLabor">Forced Labor</option>
        </select>
      <button id="viewMaleBtn" class="btn btn-info btn-sm">view data</button>
@@ -254,7 +254,7 @@ h3 {
     <h4>View Data For Other Genders: </h4>
       <select id='viewOther' name="viewOther" class='chosen-select'>
        <option value="noSelection"></option>
-       <option value="otherSex">Sex Trafficking</option>
+       <option value="otherSex">Sex trade</option>
        <option value="otherLabor">Forced Labor</option>
        </select>
      <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
@@ -373,15 +373,8 @@ h3 {
 
   <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
   <h2>What Can You Do to Stop Human Trafficking?</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
 
-    <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex trade and child labor happens in SouthEastern Unites States (I am not sure if this is true, could be in more populous states like CA and TX). One sentence about sex trade, another about child labor. etc.” is a great star</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <div id="footer" style='margin-top: 25px'>
       <div class="container">
@@ -499,11 +492,11 @@ h3 {
   /* Function to calculate the statistical differences between two states */
   function calculateStates(state1, state2) {
     var state1_labor = state1['Number of forced labor crimes reported'];
-    var state1_sex = state1['Number of sex trafficking crimes reported'];
+    var state1_sex = state1['Number of sex trade crimes reported'];
     var state1_total = state1['Total trafficking crimes reported'];
 
     var state2_labor = state2['Number of forced labor crimes reported'];
-    var state2_sex = state2['Number of sex trafficking crimes reported'];
+    var state2_sex = state2['Number of sex trade crimes reported'];
     var state2_total = state2['Total trafficking crimes reported'];
 
     var more1 = (state1_labor > state2_labor);
@@ -522,9 +515,9 @@ h3 {
     }
 
     if (more2) {
-      s2 = state1.State + ' has ' + p2 + "% more sex trafficking crimes than " + state2.State;
+      s2 = state1.State + ' has ' + p2 + "% more sex trade crimes than " + state2.State;
     } else {
-      s2 = state1.State + ' has ' + p2 + "% less sex trafficking crimes than " + state2.State;
+      s2 = state1.State + ' has ' + p2 + "% less sex trade crimes than " + state2.State;
     }
 
     if (more3) {
@@ -575,14 +568,14 @@ h3 {
         if (keys[i] == state1){
           arr.push({"State": d3.select('#' + state1).attr("name"),
             "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
-            "Number of sex trafficking crimes reported": data[state1].sexTraffickingCrimesReported,
+            "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
           });
         }
         if (keys[i] == state2){
           arr.push({"State": d3.select('#' + state2).attr("name"),
             "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
-            "Number of sex trafficking crimes reported": data[state2].sexTraffickingCrimesReported,
+            "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
           });
         }
