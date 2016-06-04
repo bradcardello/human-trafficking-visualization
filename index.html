@@ -210,7 +210,7 @@ h3 {
   width: 110px !important;
 }
 
-#viewPerCapita, #viewFemale, #viewMale, #viewOther{
+#viewDefault, #viewFemale, #viewMale, #viewOther{
   width: 303px !important;
 }
 
@@ -235,7 +235,7 @@ h3 {
 
     <div id="selection">
       
-      <button id="viewPerCapitaBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
+      <button id="viewDefaultBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
 
       <h4>View Data For Females: </h4>
       <select id='viewFemale' name="viewFemale" class='chosen-select'>
@@ -476,7 +476,7 @@ h3 {
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
     
-    "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.traffickingCrimesReported) * 100) / 100).toFixed(2)+"</td></tr>"+
+    "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
     "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
     "</table>";
@@ -549,7 +549,7 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-      data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+      data[d].color = d3.interpolate("#eff3ff", "#08519c")(Math.sqrt(data[d].totalCrimes));
     });
 
     /* draw states on id #statesvg */
@@ -570,14 +570,14 @@ h3 {
       for (var i = 0; i < length; i++) {
         if (keys[i] == state1){
           arr.push({"State": d3.select('#' + state1).attr("name"),
-            "Total trafficking crimes reported": data[state1].traffickingCrimesReported,
+            "Total trafficking crimes reported": data[state1].totalCrimes,
             "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
           });
         }
         if (keys[i] == state2){
           arr.push({"State": d3.select('#' + state2).attr("name"),
-            "Total trafficking crimes reported": data[state2].traffickingCrimesReported,
+            "Total trafficking crimes reported": data[state2].totalCrimes,
             "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
           });
@@ -591,7 +591,7 @@ h3 {
       compare();
     });
     
-    function viewPerCapita() {
+    function viewDefault() {
       $('#viewFemale').val("noSelection").trigger("chosen:updated");
       $('#viewMale').val("noSelection").trigger("chosen:updated");
       $('#viewOther').val("noSelection").trigger("chosen:updated");
@@ -599,7 +599,7 @@ h3 {
       var keys = Object.keys(data);
       /* Interpolate color according to the numbers of tracking crime reported*/
       keys.forEach(function(d){
-        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].totalCrimes));
       });
 
       /* draw states on id #statesvg */
@@ -609,8 +609,8 @@ h3 {
       uStates.draw("#statesvg", data, tooltipHtml);
     }
     // Add listener to compare button, to compare states
-    $('#viewPerCapitaBtn').click(function(){
-      viewPerCapita();
+    $('#viewDefaultBtn').click(function(){
+      viewDefault();
     });
     
     function viewFemale() {
@@ -625,12 +625,7 @@ h3 {
         var keys = Object.keys(data);
         /* Interpolate color according to the numbers of tracking crime reported*/
         keys.forEach(function(d){
-          if (selection == "femalesSex"){
-            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/1000));
-          }
-          else{
-            data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection]/200));
-          }
+          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
         });
         
         /* draw states on id #statesvg */
@@ -654,7 +649,7 @@ h3 {
         var keys = Object.keys(data);
         /* Interpolate color according to the numbers of tracking crime reported*/
         keys.forEach(function(d){
-          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection])/10);
+          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
         });
         
         /* draw states on id #statesvg */
@@ -678,7 +673,7 @@ h3 {
         var keys = Object.keys(data);
         /* Interpolate color according to the numbers of tracking crime reported*/
         keys.forEach(function(d){
-          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection])/10);
+          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
         });
         
         /* draw states on id #statesvg */
