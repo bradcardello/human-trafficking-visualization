@@ -539,11 +539,13 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-<<<<<<< HEAD
+
       data[d].color = d3.interpolate("#81CFE0", "#2171b5")(data[d].traffickingCrimesReported);
-=======
+
       data[d].color = d3.interpolate("#eff3ff", "#08519c")(Math.sqrt(data[d].totalCrimes));
->>>>>>> origin/master
+
+      data[d].color = d3.interpolate("#eff3ff", "#08519c")(Math.sqrt(data[d].totalCrimes));
+
     });
 
     /* draw states on id #statesvg */
@@ -598,14 +600,14 @@ h3 {
       for (var i = 0; i < length; i++) {
         if (keys[i] == state1){
           arr.push({"State": d3.select('#' + state1).attr("name"),
-<<<<<<< HEAD
+
             "Total trafficking crimes reported": data[state1][selected]
           });
         }
         if (keys[i] == state2){
             arr.push({"State": d3.select('#' + state2).attr("name"),
             "Total trafficking crimes reported": data[state2][selected]
-=======
+
             "Total trafficking crimes reported": data[state1].totalCrimes,
             "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
@@ -616,7 +618,7 @@ h3 {
             "Total trafficking crimes reported": data[state2].totalCrimes,
             "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
->>>>>>> origin/master
+
           });
         }
       }
@@ -636,11 +638,13 @@ h3 {
       var keys = Object.keys(data);
       /* Interpolate color according to the numbers of tracking crime reported*/
       keys.forEach(function(d){
-<<<<<<< HEAD
+
         data[d].color = d3.interpolate("#81CFE0", "#2171b5")(data[d].traffickingCrimesReported);
-=======
+
         data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].totalCrimes));
->>>>>>> origin/master
+
+        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].totalCrimes));
+
       });
 
       /* draw states on id #statesvg */
@@ -666,16 +670,18 @@ h3 {
         var keys = Object.keys(data);
         /* Interpolate color according to the numbers of tracking crime reported*/
         keys.forEach(function(d){
-<<<<<<< HEAD
+
           if (selection == "femalesSex"){
             data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/800));
           }
           else{
             data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/200));
           }
-=======
+
           data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
->>>>>>> origin/master
+
+          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+
         });
         
         /* draw states on id #statesvg */
