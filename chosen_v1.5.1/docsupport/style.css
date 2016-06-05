@@ -33,7 +33,16 @@ p { margin: 0 0 .7em; max-width: 700px; }
 table+p { margin-top: 1em; }
 
 h2 { border-bottom: 1px solid #ccc; font-size: 1.2em; margin: 3em 0 1em 0; font-weight: bold;}
-h3 { font-weight: bold; font-size: 1em }
+h3 {  font-size: 1em }
+
+.additionalinfo {
+    width: 1800px;
+    height: 230px;
+    margin: 0 auto;
+    text-align: left;
+    background-color:#6699FF;
+    margin-bottom: 30px;
+}
 
 h2.intro { border-bottom: none; font-size: 1em; font-weight: normal; margin-top:0; }
 
