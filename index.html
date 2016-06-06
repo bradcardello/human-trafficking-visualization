@@ -1,9 +1,31 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
+
+
+<!--Added the Head for the Matrix-->    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../d3/d3.v3.js"></script>
+
+    <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
+    <link href="teste.css" rel="stylesheet">
+    <script type="text/javascript" src="teste.js" ></script>
+    
+<!--  End of head for Matrix  -->
+    
+</head>
+
 <style>
+  #gender{
+    display: none;
+  }    
   .foot-links a, .foot-links p{
     display: block;
     color: rgb(63, 63, 63);
@@ -19,7 +41,7 @@
   }
     a:link {
     color: blue;
-}
+  }
   .foot-links img{
     padding-top: 5px;
   }
@@ -39,7 +61,7 @@
   }
   
   #footer .container{
-    max-width: 1100px;
+    max-width: 1300px;
   }
   #bottom-footer{
     margin-bottom: 20px;
@@ -103,127 +125,162 @@
     shape-rendering: crispEdges;
   }
 
-}
+  .info {
+    width: 1400px;
+    height: 130px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 0px;
 
-.info {
-  width: 1400px;
-  height: 130px;
-  margin: 0 auto;
-  text-align: left;
-  margin-bottom: 30px;
-  padding-bottom: 0px;
+  }
 
-}
+  .infotwo {
+    width: 1400px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 0px;
 
-.infotwo {
-  width: 1400px;
-  height: 100px;
-  margin: 0 auto;
-  text-align: left;
-  margin-bottom: 0px;
+  }
+  #classinfo {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-top: 0px;
+    padding-left: 50px;
 
-}
-#classinfo {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-top: 0px;
-  padding-left: 50px;
+  }
+  #filesubmitted {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-left: 60px;
 
-}
-#filesubmitted {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-left: 60px;
+  }
+  #data {
+    float: left;
+    width: 250px;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+  }
 
-}
-#data {
-  float: left;
-  width: 250px;
-  height: 100%;
-  padding-left: 50px;
-  padding-right: 0px;
-  padding-bottom: 20px;
-}
+  #code {
+    float: left;
+    width: 390px;
+    height: 100%;
+    padding-left: 200px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .x.axis path {
+    display: none;
+  }
 
-#code {
-  float: left;
-  width: 390px;
-  height: 100%;
-  padding-left: 200px;
-  padding-right: 0px;
-  padding-bottom: 30px;
-}
-h3 {
-  font-size: 15px;
-}
-.x.axis path {
-  display: none;
-}
+  .state{
+    fill: none;
+    stroke: #a9a9a9;
+    stroke-width: 1;
+  }
+  .state:hover{
+    fill-opacity:0.5;
+  }
+  #tooltip {   
+    position: absolute;           
+    text-align: center;
+    padding: 20px;             
+    margin: 10px;
+    font: 12px sans-serif;        
+    background: lightsteelblue;   
+    border: 1px;      
+    border-radius: 2px;           
+    pointer-events: none;         
+  }
+  #tooltip h4{
+    margin:0;
+    font-size:14px;
+  }
+  #tooltip{
+    background:rgba(0,0,0,0.9);
+  /*  border:1px solid grey;*/
+    border-radius:5px;
+    font-size:12px;
+    width:auto;
+    padding:4px;
+  /*  color:white;*/
+    opacity:0;
+  }
 
-.state{
-  fill: none;
-  stroke: #a9a9a9;
-  stroke-width: 1;
-}
-.state:hover{
-  fill-opacity:0.5;
-}
-#tooltip {   
-  position: absolute;           
-  text-align: center;
-  padding: 20px;             
-  margin: 10px;
-  font: 12px sans-serif;        
-  background: lightsteelblue;   
-  border: 1px;      
-  border-radius: 2px;           
-  pointer-events: none;         
-}
-#tooltip h4{
-  margin:0;
-  font-size:14px;
-}
-#tooltip{
-  background:rgba(0,0,0,0.9);
-  border:1px solid grey;
-  border-radius:5px;
-  font-size:12px;
-  width:auto;
-  padding:4px;
-  color:white;
-  opacity:0;
-}
-#tooltip table{
-  table-layout:fixed;
-}
-#tooltip tr td{
-  padding:0;
-  margin:0;
-}
-#tooltip tr td:nth-child(1){
-  width:150px;
-}
-#tooltip tr td:nth-child(2){
-  text-align:center;
-}
+  /*Added ToolTip - Commented out the tow lines above*/
+  #tooltip {
+    background: #e9e9e9;
+  /*  border:1px solid grey;*/
+    border-radius:5px;
+    font-size:12px;
+    width:auto;
+    padding:4px;
+    color:solid grey;
+    opacity:0;
+    box-shadow: 0px 0px 5px grey;
+  }
 
-#compare{
-  width: 110px !important;
-}
+  #tooltip table{
+    table-layout:fixed;
+  }
+  #tooltip tr td{
+    padding:0;
+    margin:0;
+  }
+  #tooltip tr td:nth-child(1){
+    width:150px;
+  }
+  #tooltip tr td:nth-child(2){
+    text-align:center;
+  }
 
-#viewDefault, #viewFemale, #viewMale, #viewOther{
-  width: 303px !important;
-}
+  #viewDefault, #viewFemale, #viewMale, #viewOther{
+    width: 303px !important;
+  }
 
-#selection {
-  padding: 10px;
-} 
+  #selection {
+    padding: 10px;
+  }
 
-.modal-dialog {
-  width: 960px; /* New width for default modal */
-}
+
+  #typeOfCrime{
+    width: 180px;
+    height: 35px;
+  }
+
+  #gender{
+    width: 180px;
+    height: 35px;
+    display: inline-block;
+  }
+
+  #state1, #state2{
+    width:100px;
+  }
+
+  #state1_chosen, #state2_chosen{
+    width: 80px !important;
+    display: inline-block !important;
+  }
+  
+  #compare{
+    display:block;
+    position: relative;
+    left: 45px;
+  }
+
+  .modal-dialog {
+    width: 960px; /* New width for default modal */
+  }
 
 </style>
 <body>
@@ -235,8 +292,17 @@ h3 {
 
     <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex and labor slave happens in border states such as California, Texas, Florida and North Dakota. And, surprisingly some of Mideast states are the main hubs for human trafficking. 
         
-    <div id="selection">
+    
+      <table style="float: left;">
+        <td>
+            <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. --> 
+        </td>
+      </table>
       
+      
+      <table style="float: right;">
+      
+<!--
       <button id="viewDefaultBtn" class="btn btn-info btn-sm">View Crimes Per 100,000 People (Default)</button> 
 
       <h4>View Data For Females: </h4>
@@ -262,171 +328,208 @@ h3 {
        <option value="otherLabor">Forced Labor</option>
      </select>
      <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
+-->
+        <div>
+           <h4 style="text-align:center;">Compare data from two states: </h4>
+           <select id='state1' name="state1" class='chosen-select' style="float:left; width:100px;">
+             <option value="AL">Alabama</option>
+             <option value="AK">Alaska</option>
+             <option value="AZ">Arizona</option>
+             <option value="AR">Arkansas</option>
+             <option value="CA">California</option>
+             <option value="CO">Colorado</option>
+             <option value="CT">Connecticut</option>
+             <option value="DE">Delaware</option>
+             <option value="DC">District Of Columbia</option>
+             <option value="FL">Florida</option>
+             <option value="GA">Georgia</option>
+             <option value="HI">Hawaii</option>
+             <option value="ID">Idaho</option>
+             <option value="IL">Illinois</option>
+             <option value="IN">Indiana</option>
+             <option value="IA">Iowa</option>
+             <option value="KS">Kansas</option>
+             <option value="KY">Kentucky</option>
+             <option value="LA">Louisiana</option>
+             <option value="ME">Maine</option>
+             <option value="MD">Maryland</option>
+             <option value="MA">Massachusetts</option>
+             <option value="MI">Michigan</option>
+             <option value="MN">Minnesota</option>
+             <option value="MS">Mississippi</option>
+             <option value="MO">Missouri</option>
+             <option value="MT">Montana</option>
+             <option value="NE">Nebraska</option>
+             <option value="NV">Nevada</option>
+             <option value="NH">New Hampshire</option>
+             <option value="NJ">New Jersey</option>
+             <option value="NM">New Mexico</option>
+             <option value="NY">New York</option>
+             <option value="NC">North Carolina</option>
+             <option value="ND">North Dakota</option>
+             <option value="OH">Ohio</option>
+             <option value="OK">Oklahoma</option>
+             <option value="OR">Oregon</option>
+             <option value="PA">Pennsylvania</option>
+             <option value="RI">Rhode Island</option>
+             <option value="SC">South Carolina</option>
+             <option value="SD">South Dakota</option>
+             <option value="TN">Tennessee</option>
+             <option value="TX">Texas</option>
+             <option value="UT">Utah</option>
+             <option value="VT">Vermont</option>
+             <option value="VA">Virginia</option>
+             <option value="WA">Washington</option>
+             <option value="WV">West Virginia</option>
+             <option value="WI">Wisconsin</option>
+             <option value="WY">Wyoming</option>
+           </select>
 
-     <h4>Select two states to compare their data: </h4>
-     <select id='state1' name="state1" class='chosen-select'>
-       <option value="AL">Alabama</option>
-       <option value="AK">Alaska</option>
-       <option value="AZ">Arizona</option>
-       <option value="AR">Arkansas</option>
-       <option value="CA">California</option>
-       <option value="CO">Colorado</option>
-       <option value="CT">Connecticut</option>
-       <option value="DE">Delaware</option>
-       <option value="DC">District Of Columbia</option>
-       <option value="FL">Florida</option>
-       <option value="GA">Georgia</option>
-       <option value="HI">Hawaii</option>
-       <option value="ID">Idaho</option>
-       <option value="IL">Illinois</option>
-       <option value="IN">Indiana</option>
-       <option value="IA">Iowa</option>
-       <option value="KS">Kansas</option>
-       <option value="KY">Kentucky</option>
-       <option value="LA">Louisiana</option>
-       <option value="ME">Maine</option>
-       <option value="MD">Maryland</option>
-       <option value="MA">Massachusetts</option>
-       <option value="MI">Michigan</option>
-       <option value="MN">Minnesota</option>
-       <option value="MS">Mississippi</option>
-       <option value="MO">Missouri</option>
-       <option value="MT">Montana</option>
-       <option value="NE">Nebraska</option>
-       <option value="NV">Nevada</option>
-       <option value="NH">New Hampshire</option>
-       <option value="NJ">New Jersey</option>
-       <option value="NM">New Mexico</option>
-       <option value="NY">New York</option>
-       <option value="NC">North Carolina</option>
-       <option value="ND">North Dakota</option>
-       <option value="OH">Ohio</option>
-       <option value="OK">Oklahoma</option>
-       <option value="OR">Oregon</option>
-       <option value="PA">Pennsylvania</option>
-       <option value="RI">Rhode Island</option>
-       <option value="SC">South Carolina</option>
-       <option value="SD">South Dakota</option>
-       <option value="TN">Tennessee</option>
-       <option value="TX">Texas</option>
-       <option value="UT">Utah</option>
-       <option value="VT">Vermont</option>
-       <option value="VA">Virginia</option>
-       <option value="WA">Washington</option>
-       <option value="WV">West Virginia</option>
-       <option value="WI">Wisconsin</option>
-       <option value="WY">Wyoming</option>
-     </select>
+           <select id='state2' name="state2" class="chosen-select" style="float:right;">
 
-     <select id='state2' name="state2" class="chosen-select">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        <button id="compare" class="btn btn-info btn-sm">compare</button>
+        </div>
+        <!--------------------------- Begin HTML Code for Matrix ------------------------>
+        <br>
+        <h4 style="text-align:center;">View by:</h2>
+        <div>   
+          <div class = "btn-group btn-group-justified" id="typeOfCrime" data-toggle = "buttons"> 
+             <label class = "btn btn-info btn-sm" >
+                <input type = "radio" name = "typeOfCrimeName" id = "sex" value="Sex"> Sex Trade
+             </label>
 
-      <option value="AL">Alabama</option>
-      <option value="AK">Alaska</option>
-      <option value="AZ">Arizona</option>
-      <option value="AR">Arkansas</option>
-      <option value="CA">California</option>
-      <option value="CO">Colorado</option>
-      <option value="CT">Connecticut</option>
-      <option value="DE">Delaware</option>
-      <option value="DC">District Of Columbia</option>
-      <option value="FL">Florida</option>
-      <option value="GA">Georgia</option>
-      <option value="HI">Hawaii</option>
-      <option value="ID">Idaho</option>
-      <option value="IL">Illinois</option>
-      <option value="IN">Indiana</option>
-      <option value="IA">Iowa</option>
-      <option value="KS">Kansas</option>
-      <option value="KY">Kentucky</option>
-      <option value="LA">Louisiana</option>
-      <option value="ME">Maine</option>
-      <option value="MD">Maryland</option>
-      <option value="MA">Massachusetts</option>
-      <option value="MI">Michigan</option>
-      <option value="MN">Minnesota</option>
-      <option value="MS">Mississippi</option>
-      <option value="MO">Missouri</option>
-      <option value="MT">Montana</option>
-      <option value="NE">Nebraska</option>
-      <option value="NV">Nevada</option>
-      <option value="NH">New Hampshire</option>
-      <option value="NJ">New Jersey</option>
-      <option value="NM">New Mexico</option>
-      <option value="NY">New York</option>
-      <option value="NC">North Carolina</option>
-      <option value="ND">North Dakota</option>
-      <option value="OH">Ohio</option>
-      <option value="OK">Oklahoma</option>
-      <option value="OR">Oregon</option>
-      <option value="PA">Pennsylvania</option>
-      <option value="RI">Rhode Island</option>
-      <option value="SC">South Carolina</option>
-      <option value="SD">South Dakota</option>
-      <option value="TN">Tennessee</option>
-      <option value="TX">Texas</option>
-      <option value="UT">Utah</option>
-      <option value="VT">Vermont</option>
-      <option value="VA">Virginia</option>
-      <option value="WA">Washington</option>
-      <option value="WV">West Virginia</option>
-      <option value="WI">Wisconsin</option>
-      <option value="WY">Wyoming</option>
-    </select>
-    <button id="compare" class="btn btn-info btn-sm">compare</button>
+             <label class = "btn btn-info btn-sm">
+                <input type = "radio" name = "typeOfCrimeName" id = "labor" value ="Labor"> Forced Labor
+             </label>
+          </div>	
+
+          <div class = "btn-group btn-group-justified" id="gender" data-toggle = "buttons">
+             <label class = "btn btn-info btn-sm">
+                <input type = "radio" name ="genderName" id = "male" value="males"> Male
+             </label>
+
+             <label class = "btn btn-info btn-sm">
+                <input type = "radio" name = "genderName" id = "female" value="females"> Female
+             </label>
+
+             <label class = "btn btn-info btn-sm">
+                <input type = "radio" name = "genderName" id = "other" value="other"> Other
+             </label>
+          </div>
+        <!--------------------------- End HTML Code for Matrix ------------------------>
+        </div>
+        <div>
+          <div class = "btn-group btn-group-horizontal" style="padding-left:39px;">
+              <button type="button" class="btn btn-info btn-sm" id="view">Filter</button>
+              <button type="button" class="btn btn-info btn-sm" id="clear">View All</button>
+          </div>
+        </div>  
+      </table>      
+
+  <div style="display: inline-block;">
+    <h3>What Can You Do to Help?</h3>
+
+    <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
+      Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
   </div>
 
-  <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+  <div id="footer" style='margin-top: 25px; display: inline-block'>
+    <div class="container">
+      <div class="row-1">
 
-  <h3>What Can You Do to Help?</h3>
+          <h3> Created by: </h3>
+              Ibrahim Altaweel, Brad Cardello, Bereket Haile and Douglas Silva in collaboration with Suresh K Lodha and Ryan Brounley  <br>
 
-  <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
-    Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
+          <h3>Created for: </h3> CMPS165, Data Programming for Visualization, Spring 2016
 
-    <div id="footer" style='margin-top: 25px'>
-      <div class="container">
-        <div class="row-1">
-             
-            <h3> Created by: </h3>
-                Ibrahim Altaweel, Brad Cardello, Bereket Haile and Douglas Silva in collaboration with Suresh K Lodha and Ryan Brounley  <br>
-            
-            <h3>Created for: </h3> CMPS165, Data Programming for Visualization, Spring 2016
-           
+      </div><!--/col-sm-3-->
+        <br>
+       <div class="col-sm-3">
+         <h3> 
+            Files:
+           </h3>
+          <div class="foot-links">
+            <p>index.html
+            </p>
+            <p>
+              data.json
+            </p>
+            <p>
+              uStates.js
+            </p>
+            <p>README</p>
+          </div>
         </div><!--/col-sm-3-->
-          <br>
-         <div class="col-sm-3">
-           <h3> 
-              Files:
-             </h3>
-            <div class="foot-links">
-              <p>index.html
-              </p>
-              <p>
-                data.json
-              </p>
-              <p>
-                uStates.js
-              </p>
-              <p>README</p>
-            </div>
-          </div><!--/col-sm-3-->
-          <div class="col-sm-3">
-            <h3>Data Sources:</h3>
-            <div class="foot-links">
-                 <a href="http://traffickingresourcecenter.org/resources" target="_blank" >traffickingresourcenter.org/resources</a>
+        <div class="col-sm-3">
+          <h3>Data Sources:</h3>
+          <div class="foot-links">
+               <a href="http://traffickingresourcecenter.org/resources" target="_blank" >traffickingresourcenter.org/resources</a>
 
-            </div>
           </div>
-          <div class="col-sm-3">
-            <h3> Code Sources:</h3>
-            <div class="foot-links">
-              <a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">bl.ocks.org/NPashap</a>
-              <a href="https://bl.ocks.org/mbostock/3887051" target="_blank">bl.ocks.org/mbostock</a>        
-              <a href="http://getbootstrap.com/javascript/#modals" target="_blank">getbootstrap.com/javascript/#modals</a>
-              <a href="https://harvesthq.github.io/chosen/" target="_blank">harvesthq.github.io/chosen</a>
-            </div>
+        </div>
+        <div class="col-sm-3">
+          <h3> Code Sources:</h3>
+          <div class="foot-links">
+            <a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">bl.ocks.org/NPashap</a>
+            <a href="https://bl.ocks.org/mbostock/3887051" target="_blank">bl.ocks.org/mbostock</a>        
+            <a href="http://getbootstrap.com/javascript/#modals" target="_blank">getbootstrap.com/javascript/#modals</a>
+            <a href="https://harvesthq.github.io/chosen/" target="_blank">harvesthq.github.io/chosen</a>
           </div>
-        </div><!--/container-->
-      </div><!--/footer-->
+        </div>
+      </div><!--/container-->
+    </div><!--/footer-->
 
 
     <div id="push"></div>
@@ -454,8 +557,10 @@ h3 {
     <script src="uStates.js"></script> <!-- creates uStates. -->
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
-    <script>
+<script>
 
+    var selection;
+    var typeOfCrimeStr;
       /*Clear the modal #bar graph html on close so that next one starts with a clean state*/
       $('#myModal').on('hidden.bs.modal', function () {
         $('#bar').html("");
@@ -464,12 +569,12 @@ h3 {
   // Initialize chosen library for better option selection
   $('.chosen-select').chosen();
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
-    return "<h4>"+n+"</h4><table>"+
+    return "<h4>"+n+"</h4><p>per 100,000 people</p><table>"+
     
-    "<tr><td>Crimes per 100,000: </td><td>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
-    "<tr><td>Total Sex Crimes: </td><td>"+(d.sexTraffickingCrimesReported)+"</td></tr>"+
-    "<tr><td>Total Forced labor Crimes: </td><td>"+(d.forcedLaborCrimesReported)+"</td></tr>"+
-    "</table>";
+    "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td align='left'>Sex trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTraffickingCrimesReported)  * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td align='left'>Forced labor: </td><td align='right'>"+parseFloat(Math.round((d.forcedLaborCrimesReported)  * 100) / 100).toFixed(2)+"</td></tr>"+
+      "</table>";
   }
 
   /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
@@ -539,13 +644,7 @@ h3 {
     var keys = Object.keys(data);
     /* Interpolate color according to the numbers of tracking crime reported*/
     keys.forEach(function(d){
-
-      data[d].color = d3.interpolate("#81CFE0", "#2171b5")(data[d].traffickingCrimesReported);
-
       data[d].color = d3.interpolate("#eff3ff", "#08519c")(Math.sqrt(data[d].totalCrimes));
-
-      data[d].color = d3.interpolate("#eff3ff", "#08519c")(Math.sqrt(data[d].totalCrimes));
-
     });
 
     /* draw states on id #statesvg */
@@ -599,14 +698,8 @@ h3 {
       // Compose data to the compare function
       for (var i = 0; i < length; i++) {
         if (keys[i] == state1){
-          arr.push({"State": d3.select('#' + state1).attr("name"),
-
-            "Total trafficking crimes reported": data[state1][selected]
-          });
-        }
-        if (keys[i] == state2){
-            arr.push({"State": d3.select('#' + state2).attr("name"),
-            "Total trafficking crimes reported": data[state2][selected],
+            arr.push({"State": d3.select('#' + state1).attr("name"),
+            "Total trafficking crimes reported": data[state1][selected],
             "Total trafficking crimes reported": data[state1].totalCrimes,
             "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
@@ -614,6 +707,7 @@ h3 {
         }
         if (keys[i] == state2){
           arr.push({"State": d3.select('#' + state2).attr("name"),
+            "Total trafficking crimes reported": data[state2][selected],
             "Total trafficking crimes reported": data[state2].totalCrimes,
             "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
             "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
@@ -637,14 +731,14 @@ h3 {
       var keys = Object.keys(data);
       /* Interpolate color according to the numbers of tracking crime reported*/
       keys.forEach(function(d){
-
-        data[d].color = d3.interpolate("#81CFE0", "#2171b5")(data[d].traffickingCrimesReported);
-
         data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].totalCrimes));
-
-        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(Math.sqrt(data[d].totalCrimes));
-
       });
+    
+//      var keys = Object.keys(data);
+//      /* Interpolate color according to the numbers of tracking crime reported*/
+//      keys.forEach(function(d){
+//        data[d].color = d3.interpolate("#81CFE0", "#446CB3")(data[d].traffickingCrimesReported);
+//      });
 
       /* draw states on id #statesvg */
       var svg = uStates.draw("#statesvg", data, tooltipHtml);
@@ -656,89 +750,190 @@ h3 {
     $('#viewDefaultBtn').click(function(){
       viewDefault();
     });
-    
-    function viewFemale() {
-      var selection = $('#viewFemale').val();
-      if (selection == "noSelection"){
-        return;
-      }
-      else{
-        $('#viewMale').val("noSelection").trigger("chosen:updated");
-        $('#viewOther').val("noSelection").trigger("chosen:updated");
-        
-        var keys = Object.keys(data);
-        /* Interpolate color according to the numbers of tracking crime reported*/
-        keys.forEach(function(d){
+   
+//    function viewFemale() {
+//      var selection = $('#viewFemale').val();
+//      if (selection == "noSelection"){
+//        return;
+//      }
+//      else{
+//        $('#viewMale').val("noSelection").trigger("chosen:updated");
+//        $('#viewOther').val("noSelection").trigger("chosen:updated");
+//        
+//        var keys = Object.keys(data);
+//        /* Interpolate color according to the numbers of tracking crime reported*/
+//        keys.forEach(function(d){
+//
+//          if (selection == "femalesSex"){
+//            data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/800));
+//          }
+//          else{
+//            data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/200));
+//          }
+//
+//          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+//
+//          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+//
+//        });
+//        
+//        /* draw states on id #statesvg */
+//        uStates.draw("#statesvg", data, tooltipHtml);
+//      }
+//    }
+//    // Add listener to compare button, to compare states
+//    $('#viewFemaleBtn').click(function(){
+//      viewFemale();
+//    });
+//    
+//    function viewMale() {
+//      var selection = $('#viewMale').val();
+//      if (selection == "noSelection"){
+//        return;
+//      }
+//      else{
+//        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+//        $('#viewOther').val("noSelection").trigger("chosen:updated");
+//        
+//        var keys = Object.keys(data);
+//        /* Interpolate color according to the numbers of tracking crime reported*/
+//        keys.forEach(function(d){
+//          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
+//        });
+//        
+//        /* draw states on id #statesvg */
+//        uStates.draw("#statesvg", data, tooltipHtml);
+//      }
+//    }
+//    // Add listener to compare button, to compare states
+//    $('#viewMaleBtn').click(function(){
+//      viewMale();
+//    });
+//   
+//    function viewOther() {
+//      var selection = $('#viewOther').val();
+//      if (selection == "noSelection"){
+//        return;
+//      }
+//      else{
+//        $('#viewFemale').val("noSelection").trigger("chosen:updated");
+//        $('#viewMale').val("noSelection").trigger("chosen:updated");
+//        
+//        var keys = Object.keys(data);
+//        /* Interpolate color according to the numbers of tracking crime reported*/
+//        keys.forEach(function(d){
+//          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
+//        });
+//        
+//        /* draw states on id #statesvg */
+//        uStates.draw("#statesvg", data, tooltipHtml);
+//      }
+//    }
+//    // Add listener to compare button, to compare states
+//    $('#viewOtherBtn').click(function(){
+//      viewOther();
+//    });
+     
+//--------------------------- Begin JQuery Code for Matrix ------------------------
+      
+     $("#typeOfCrime").click(function(){
+        $("#gender").slideUp(300); 
+        $("#gender").slideDown(300); 
+        $("#gender").button('reset');
 
-          if (selection == "femalesSex"){
-            data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/800));
-          }
-          else{
-            data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/200));
-          }
-
-          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
-
-          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
-
-        });
-        
-        /* draw states on id #statesvg */
-        uStates.draw("#statesvg", data, tooltipHtml);
-      }
-    }
-    // Add listener to compare button, to compare states
-    $('#viewFemaleBtn').click(function(){
-      viewFemale();
+//        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
+//        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
+    });  
+            
+    $("#clear").click(function(){
+        $("#gender").slideUp(300);
+        $("#typeOfCrime").button('reset');
+        $("#gender").button('reset');
+        selection = "noSelection";
+        typeOfCrimeStr = "noSelection";
+        viewDefault();
+    });  
+      
+    $( "#gender" ).click(function(){
+        //$("#view").click();
     });
-    
-    function viewMale() {
-      var selection = $('#viewMale').val();
-      if (selection == "noSelection"){
-        return;
-      }
-      else{
-        $('#viewFemale').val("noSelection").trigger("chosen:updated");
-        $('#viewOther').val("noSelection").trigger("chosen:updated");
+      
+      
+    $("#view").click(function(){
+        if (document.getElementById('sex').checked) {
+          typeOfCrimeStr = document.getElementById('sex').value;
+        }
+        else if (document.getElementById('labor').checked) {
+          typeOfCrimeStr = document.getElementById('labor').value;
+        }
+        else{
+            typeOfCrimeStr = "";
+        }
         
-        var keys = Object.keys(data);
-        /* Interpolate color according to the numbers of tracking crime reported*/
-        keys.forEach(function(d){
-          data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
-        });
         
-        /* draw states on id #statesvg */
-        uStates.draw("#statesvg", data, tooltipHtml);
-      }
-    }
-    // Add listener to compare button, to compare states
-    $('#viewMaleBtn').click(function(){
-      viewMale();
+        if (document.getElementById('male').checked) {
+          selection = document.getElementById('male').value + typeOfCrimeStr;
+              if (selection == "noSelection"){
+                return;
+              }
+              else{
+                var keys = Object.keys(data);
+                /* Interpolate color according to the numbers of tracking crime reported*/
+                keys.forEach(function(d){
+                  data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
+                });
+
+                /* draw states on id #statesvg */
+                uStates.draw("#statesvg", data, tooltipHtml);
+              }
+        }
+        else if (document.getElementById('female').checked) {
+              selection = document.getElementById('female').value + typeOfCrimeStr;
+              if (selection == "noSelection"){
+                return;
+              }
+              else{
+                var keys = Object.keys(data);
+                /* Interpolate color according to the numbers of tracking crime reported*/
+                keys.forEach(function(d){
+                      if (selection == "femalesSex"){
+                        data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/800));
+                      }
+                      else{
+                        data[d].color = d3.interpolate("#f2f0f7", "#4a1486")(Math.sqrt(data[d][selection]/200));
+                      }
+
+                      data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+
+                      data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+                });
+
+                /* draw states on id #statesvg */
+                uStates.draw("#statesvg", data, tooltipHtml);
+              }
+        }
+        else if (document.getElementById('other').checked) {
+          selection = document.getElementById('other').value + typeOfCrimeStr;
+              if (selection == "noSelection"){
+                return;
+              }
+              else{
+                var keys = Object.keys(data);
+                /* Interpolate color according to the numbers of tracking crime reported*/
+                keys.forEach(function(d){
+                  data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
+                });
+
+                /* draw states on id #statesvg */
+                uStates.draw("#statesvg", data, tooltipHtml);
+              }    
+        }
+        else{
+            selection="noSelection";
+        }        
     });
-    
-    function viewOther() {
-      var selection = $('#viewOther').val();
-      if (selection == "noSelection"){
-        return;
-      }
-      else{
-        $('#viewFemale').val("noSelection").trigger("chosen:updated");
-        $('#viewMale').val("noSelection").trigger("chosen:updated");
-        
-        var keys = Object.keys(data);
-        /* Interpolate color according to the numbers of tracking crime reported*/
-        keys.forEach(function(d){
-          data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
-        });
-        
-        /* draw states on id #statesvg */
-        uStates.draw("#statesvg", data, tooltipHtml);
-      }
-    }
-    // Add listener to compare button, to compare states
-    $('#viewOtherBtn').click(function(){
-      viewOther();
-    });
+      
+//--------------------------- End JQuery Code for Matrix ------------------------
     
   });
 
