@@ -836,14 +836,16 @@ h3 {
 //--------------------------- Begin JQuery Code for Matrix ------------------------
       
     $("#typeOfCrime").click(function(){
-        $("#gender").slideDown(500); 
+        $("#gender").slideUp(300); 
+        $("#gender").slideDown(300); 
         $("#gender").button('reset');
+
 //        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
 //        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
     });  
             
     $("#clear").click(function(){
-        $("#gender").slideUp(500);
+        $("#gender").slideUp(300);
         $("#typeOfCrime").button('reset');
         $("#gender").button('reset');
         selection = "noSelection";
