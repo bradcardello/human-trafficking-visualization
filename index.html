@@ -268,11 +268,13 @@ h3 {
   <div class="container">
     <div id="tooltip"></div><!-- div to hold tooltip. -->
     <div class="page-header">
-      <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
+      <h1 style="text-align:center">Human Trafficking: Sex Trade and Forced Labor</h1>
     </div>
 
     <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex and labor slave happens in border states such as California, Texas, Florida and North Dakota. And, surprisingly some of Mideast states are the main hubs for human trafficking. 
         
+<!--    <p id="p">E ai</p>-->
+    
     <div id="selection">
       
 <!--
@@ -302,6 +304,8 @@ h3 {
      </select>
      <button id="viewOtherBtn" class="btn btn-info btn-sm">view data</button> 
 -->
+
+<svg width="960" height="600" id="statesvg" style="align:center"></svg> <!-- svg to hold the map. -->  
         
 <table width=100%>
     <td float="left" width=500px align="start">
@@ -420,7 +424,7 @@ h3 {
     
 
     </td>
-    <td>
+    <td style="padding-top:10px">
 <!--------------------------- Begin HTML Code for Matrix ------------------------>
     <div>   
         <div class = "btn-group btn-group-justified" id="typeOfCrime" data-toggle = "buttons"> 
@@ -449,16 +453,14 @@ h3 {
     </div> 
 <!--------------------------- End HTML Code for Matrix ------------------------>
     </td>
-    <td style="padding:10px">
+    <td style="padding-top:10px; padding-left: 10px">
         <div class = "btn-group btn-group-vertical">
-            <button type="button" class="btn btn-info btn-sm" id="clear">Clear</button>
-            <button type="button" class="btn btn-info btn-sm" id="view">View</button>
+            <button type="button" class="btn btn-info btn-sm" id="clear">All</button>
+            <button type="button" class="btn btn-info btn-sm" id="view">Filter</button>
         </div>
     </td>  
 </table>      
-
-      <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->    
-
+  
 
   <h3>What Can You Do to Help?</h3>
 
@@ -836,6 +838,8 @@ h3 {
     $("#typeOfCrime").click(function(){
         $("#gender").slideDown(500); 
         $("#gender").button('reset');
+//        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
+//        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
     });  
             
     $("#clear").click(function(){
@@ -848,7 +852,9 @@ h3 {
     });  
       
     $( "#gender" ).click(function(){
-        //$("#view").click();
+//        $("#view").click();
+//        selection = document.querySelector('input[name="genderName"]:checked').value;
+//        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
     });
       
       
