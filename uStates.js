@@ -56,6 +56,7 @@
     ];
   var uStates={};
   uStates.draw = function(id, data, toolTip, selected){
+    d3.selectAll("svg > *").remove();
     function mouseOver(d){
       d3.select("#tooltip").transition().duration(200).style("opacity", .9);
       d3.select("#tooltip").html(toolTip(d.n, data[d.id]))
@@ -65,40 +66,36 @@
     function mouseOut(){
       d3.select("#tooltip").transition().duration(500).style("opacity", 0);
     }
-    
     var color = d3.scale.linear()
           .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
-        
         var val1 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
           // take the first option
           [0];
-        
+
         var val2 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
           // take the first option
           [5];
-        
+
         var val3 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
           // take the first option
           [22];
-        
         var val4 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
           // take the first option
           [37];
-        
         var val5 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
           // take the first option
           [48];
-        
+
         var val6 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
@@ -113,11 +110,9 @@
           val5.value[selected],
           val6.value[selected]
         ]);
-    
    /* var color = d3.scale.quantile()
       .domain([0, 5, 10, 15, 20, 40])
       .range(colorbrewer.Reds[7]);*/
-    
     var svg = d3.select(id).append("svg");
     svg.selectAll(".state")
       .data(uStatePaths)
@@ -130,11 +125,9 @@
       .style("fill",function(d){ return data[d.id].color; })
    //   .attr("color", function(d){ return data[d.id].color}) //add color as a html attribute for convenience to further modification
       .on("mouseover", mouseOver).on("mouseout", mouseOut);
-    
+
     var legendRectSize = 18;
     var legendSpacing = 4;
-    
-    d3.select('.legend').selectAll('g').remove();
     var legend = svg.selectAll('.legend')
       .data(color.domain())
       .enter()
@@ -147,14 +140,14 @@
         var vert = i * height - offset;
         return 'translate(' + horz + ',' + vert + ')';
       });
-    
+
     legend.append('rect')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
       .style('fill', color)
       .style('stroke', color);
-    
     legend.append('text')
+      .text(function(d) {return ""})
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
       .text(function(d) { return Math.round(d); });
