@@ -55,7 +55,7 @@
 {id:"CA",n:"California",d:"M144.69443,382.19813L148.63451,381.70951L150.12055,379.69807L150.66509,376.75698L147.11357,376.16686L146.5994,375.49864L147.0769,373.46633L146.91762,372.87666L148.84019,372.25707L151.88297,369.42439L152.46453,364.42929L153.84443,361.02718L155.78772,358.86092L159.30659,357.27125L160.96098,355.66642L161.02971,353.55758L160.03638,352.97757L159.01323,351.90484L157.85801,346.05639L155.17281,341.2263L155.73862,337.7213L153.31904,336.69199L84.257718,232.51359L103.15983,164.9121L36.079967,149.21414L34.573071,153.94738L34.41141,161.38376L29.238275,173.18497L26.166727,175.77154L25.843406,176.90316L24.06514,177.71147L22.610196,181.91464L21.801894,185.14785L24.550122,189.35102L26.166727,193.55419L27.29835,197.11072L26.975029,203.57714L25.196764,206.64869L24.550122,212.46847L23.580159,216.18666L25.358424,220.06651L28.106652,224.593L30.369899,229.44282L31.663182,233.48433L31.339862,236.71754L31.016541,237.20252L31.016541,239.3041L36.674657,245.60886L36.189676,248.03377L35.543034,250.29702L34.896392,252.23694L35.058052,260.48163L37.159638,264.19982L39.099564,266.78638L41.847792,267.27137L42.817755,270.01959L41.686132,273.57612L39.584545,275.19273L38.452922,275.19273L37.64462,279.07258L38.129601,281.98247L41.362811,286.3473L42.979415,291.6821L44.434359,296.37025L45.727643,299.4418L49.122513,305.26158L50.577457,307.84814L51.062439,310.75803L52.679043,311.72799L52.679043,314.1529L51.870741,316.09283L50.092476,323.20589L49.607494,325.14581L52.032402,327.89404L56.235574,328.37902L60.762067,330.15729L64.641918,332.25887L67.551807,332.25887L70.461695,335.33042L73.048262,340.18024L74.179886,342.44348L78.059737,344.54507L82.909551,345.35337L84.364495,347.45496L85.011137,350.68817L83.556193,351.33481L83.879514,352.30477L87.112725,353.11307L89.860953,353.27474L93.020842,351.58789L96.900696,355.79106L97.708998,358.05431L100.29557,362.25748L100.61889,365.49069L100.61889,374.867L101.10387,376.64526L111.12682,378.10021L130.84939,380.84843L144.69443,382.19813ZM56.559218,338.48145L57.852506,340.01723L57.690846,341.31052L54.457625,341.22969L53.891811,340.01723L53.245167,338.56228L56.559218,338.48145ZM58.49915,338.48145L59.711608,337.83481L63.268151,339.9364L66.339711,341.14885L65.450575,341.79551L60.924066,341.55301L59.307456,339.9364L58.49915,338.48145ZM79.191764,358.28493L80.970029,360.62901L81.778342,361.59898L83.314121,362.16479L83.879928,360.70984L82.909965,358.93157L80.242562,356.91081L79.191764,357.07247L79.191764,358.28493ZM77.736809,366.93379L79.515085,370.08618L80.727543,372.02612L79.272589,372.2686L77.979305,371.05615C77.979305,371.05615,77.251828,369.6012,77.251828,369.19704C77.251828,368.7929,77.251828,367.01462,77.251828,367.01462L77.736809,366.93379Z"}
     ];
   var uStates={};
-  uStates.draw = function(id, data, toolTip){
+  uStates.draw = function(id, data, toolTip, selected){
     function mouseOver(d){
       d3.select("#tooltip").transition().duration(200).style("opacity", .9);
       d3.select("#tooltip").html(toolTip(d.n, data[d.id]))
@@ -65,6 +65,59 @@
     function mouseOut(){
       d3.select("#tooltip").transition().duration(500).style("opacity", 0);
     }
+    
+    var color = d3.scale.linear()
+          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+        
+        var val1 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [0];
+        
+        var val2 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [5];
+        
+        var val3 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [22];
+        
+        var val4 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [37];
+        
+        var val5 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [48];
+        
+        var val6 = d3.entries(data)
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value[selected], b.value[selected]); })
+          // take the first option
+          [50];
+
+        color.domain([
+          val1.value[selected],
+          val2.value[selected],
+          val3.value[selected],
+          val4.value[selected],
+          val5.value[selected],
+          val6.value[selected]
+        ]);
+    
+   /* var color = d3.scale.quantile()
+      .domain([0, 5, 10, 15, 20, 40])
+      .range(colorbrewer.Reds[7]);*/
+    
     var svg = d3.select(id).append("svg");
     svg.selectAll(".state")
       .data(uStatePaths)
@@ -73,9 +126,38 @@
       .attr("class","state").attr("d",function(d){ return d.d;})
       .attr("id", function(d){ return d.id; }) //add id as a html attribute for convenience to further modification
       .attr("name", function(d) {return d.n}) //add name as a html attribute for convenience to further modification
+//      .style("fill",function(d){ return color(d[selected]); })
       .style("fill",function(d){ return data[d.id].color; })
    //   .attr("color", function(d){ return data[d.id].color}) //add color as a html attribute for convenience to further modification
       .on("mouseover", mouseOver).on("mouseout", mouseOut);
+    
+    var legendRectSize = 18;
+    var legendSpacing = 4;
+    
+    d3.select('.legend').selectAll('g').remove();
+    var legend = svg.selectAll('.legend')
+      .data(color.domain())
+      .enter()
+      .append('g')
+      .attr('class', 'legend')
+      .attr('transform', function(d, i) {
+        var height = legendRectSize + legendSpacing;
+        var offset = -.5 * height * color.domain().length/2;
+        var horz = 52.5 * legendRectSize;
+        var vert = i * height - offset;
+        return 'translate(' + horz + ',' + vert + ')';
+      });
+    
+    legend.append('rect')
+      .attr('width', legendRectSize)
+      .attr('height', legendRectSize)
+      .style('fill', color)
+      .style('stroke', color);
+    
+    legend.append('text')
+      .attr('x', legendRectSize + legendSpacing)
+      .attr('y', legendRectSize - legendSpacing)
+      .text(function(d) { return Math.round(d); });
     return svg; //return the svg object to further modification
   }
 
