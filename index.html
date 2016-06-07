@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
 <meta charset="utf-8">
 <!-- Latest compiled and minified CSS -->
@@ -8,10 +9,20 @@
 
 
 <!--Added the Head for the Matrix-->    
+=======
+  <head>
+  <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
+
+    <!--Added the Head for the Matrix-->
+>>>>>>> gh-pages
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
     
@@ -490,9 +501,210 @@
     </div><!--/footer-->
   </div>
 
+=======
+    <link rel="stylesheet" href="chosen_v1.5.1/chosen.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <!--  End of head for Matrix  -->
+  </head>
 
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
+      </div>
+
+      <p>Despite popular belief, human trafficking is rampant in the US and the scale is shocking. Most sex and labor slave happens in border states such as California, Texas, Florida and North Dakota. And, surprisingly some of Mideast states are the main hubs for human trafficking.</p>
+    </div>
+
+    <div class="container">
+      <div class='row'>
+        <div class='col-md-10'>
+          <!-- svg to hold the map. -->
+          <svg width="980" height="600" id="statesvg"></svg>
+        </div>
+
+      <div class='col-md-2'>
+        <!--- Begin HTML Code for Matrix -->
+        <div style="padding-top: 0px;">
+          <div class = "btn-group btn-group-vertical" id="filterBtns" data-toggle = "buttons" style="width:135px;"> 
+            <h4 style="text-align:center;">Per 1,000,000 People:</h4>
+            <button class="btn btn-info btn-sm btn-htv" id="allTraffickingBtn">All Human Trafficking</button>
+            <button class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtn">Sex Trade</button> 
+            <button class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtn">Forced Labor</button>
+          </div>
+        </div>
+
+        <table style="float:right; padding-top:10px;display:inline;position:relative;">
+          <div style="padding-top: 0px;">
+            <div class = "btn-group btn-group-vertical" id="filterBtns" data-toggle = "buttons" style="width:135px;">
+              <h4 style="text-align:center;">Compare two states: </h4>
+              <select id='state1' name="state1" class='chosen-select'>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+
+              <select id='state2' name="state2" class="chosen-select">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+              <button id="compare" class="btn btn-info btn-sm" style="width:135px;">compare</button>
+            </table>
+          </div> <!-- End of col-md-2 -->
+        </div> <!-- End of row -->
+
+      <div class='row'>
+        <h3>What Can You Do to Help?</h3>
+        <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
+          Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
+      </div>
+>>>>>>> gh-pages
+
+      <div class='row'>
+        <div id="footer">
+          <div class="container">
+            <div class="row-1">
+              <h3> Created by: </h3>
+                  Ibrahim Altaweel, Brad Cardello, Bereket Haile and Douglas Silva in collaboration with Suresh K Lodha and Ryan Brounley  <br>
+
+              <h3>Created for: </h3> CMPS165, Data Programming for Visualization, Spring 2016
+            </div><!--/col-sm-3-->
+            <br>
+            <div class="col-sm-3">
+              <h3>
+                Files:
+              </h3>
+              <div class="foot-links">
+                <p>index.html
+                </p>
+                <p>
+                  data.json
+                </p>
+                <p>
+                  uStates.js
+                </p>
+                <p>README</p>
+              </div>
+            </div><!--/col-sm-3-->
+            <div class="col-sm-3">
+              <h3>Data Sources:</h3>
+              <div class="foot-links">
+                <a href="http://traffickingresourcecenter.org/resources" target="_blank" >traffickingresourcenter.org/resources</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <h3> Code Sources:</h3>
+              <div class="foot-links">
+                <a href="http://bl.ocks.org/NPashaP/a74faf20b492ad377312" target="_blank">bl.ocks.org/NPashap</a>
+                <a href="https://bl.ocks.org/mbostock/3887051" target="_blank">bl.ocks.org/mbostock</a>
+                <a href="http://getbootstrap.com/javascript/#modals" target="_blank">getbootstrap.com/javascript/#modals</a>
+                <a href="https://harvesthq.github.io/chosen/" target="_blank">harvesthq.github.io/chosen</a>
+              </div>
+            </div>
+          </div><!--/container-->
+        </div><!--/footer-->
+      </div><!--/row-->
+    </div><!--container-->
     <div id="push"></div>
-
+    <div id="tooltip"></div><!-- div to hold tooltip. -->
     <div id='myModal' class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -509,14 +721,18 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+=======
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+>>>>>>> gh-pages
     <script src="uStates.js"></script>  <!-- creates uStates. -->
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
     <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+<<<<<<< HEAD
 
     <script>
 
@@ -1129,3 +1345,8 @@
   </script>
 
 </body>
+=======
+    <script src="index.js"></script>
+  </body>
+</html>
+>>>>>>> gh-pages
