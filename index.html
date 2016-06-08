@@ -35,7 +35,8 @@
 
       <div class='col-md-2'>
         <!--- Begin HTML Code for Matrix -->
-        <div style="padding-top: 0px;">
+<!--
+        <div>
           <div class = "btn-group btn-group-vertical" id="filterBtns" data-toggle = "buttons" style="width:135px;"> 
             <h4 style="text-align:center;">Per 1,000,000 People:</h4>
             <button class="btn btn-info btn-sm btn-htv" id="allTraffickingBtn">All Human Trafficking</button>
@@ -43,6 +44,58 @@
             <button class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtn">Forced Labor</button>
           </div>
         </div>
+-->
+
+<!--        New Matrix    -->
+            <div style="width: 135px">
+                <h4 style="text-align: center;">Per 1,000,000 People:</h4>
+                <div class="title"><div style="padding:3px; text-align:center;">All Human Trafficking</div>
+                    <div class="btn-group btn-group-justified">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv" id="allTraffickingBtn">All</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv" id="allTraffickingBtnM">M</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv" id="allTraffickingBtnF">F</button>
+                      </div>
+                    </div>
+                </div>  
+
+                <br>
+
+                <div class="title" style="background-color: #d9534f;"><div style="padding-bottom:3px; text-align:center;">Sex Trade</div>
+                    <div class="btn-group btn-group-justified">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtn">All</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnM">M</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnF">F</button>
+                      </div>
+                    </div>
+                </div>    
+
+                <br>
+
+                <div class="title" style="background-color: #f0ad4e;"><div style="padding-bottom:3px; text-align:center;">Forced Labor</div>
+                    <div class="btn-group btn-group-justified">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtn">All</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtnM">M</button>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtnF">F</button>
+                      </div>
+                    </div>
+                </div>
+            </div> 
+<!--      End New Matrix      -->
 
         <table style="float:right; padding-top:10px;display:inline;position:relative;">
           <div style="padding-top: 0px;">
@@ -101,7 +154,7 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-
+                
               <select id='state2' name="state2" class="chosen-select">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -155,13 +208,13 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-              <button id="compare" class="btn btn-info btn-sm" style="width:135px;">compare</button>
+              <button id="compare" class="btn btn-info btn-sm" style="width:135px; margin-top:10px;">compare</button>
             </table>
           </div> <!-- End of col-md-2 -->
         </div> <!-- End of row -->
 
-      <div class='row'>
-        <h3>What Can You Do to Help?</h3>
+      <div class='row' style="text-align:center;">
+        <h3 id="toHelp">What Can You Do to Help?</h3>
         <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
           Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
       </div>

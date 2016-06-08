@@ -16,6 +16,26 @@ var selection;
           "</table>";
       }
 
+      function tooltipHtmlSex(n, d){ /* function to create html content string in tooltip div. */
+        return "<h4>"+n+"</h4><p><b>Sex Trade</b><br> per 1,000,000 people</p><table>"+
+
+        "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Female: </td><td align='right'>"+parseFloat(Math.round((d.femalesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "</table>";
+      }  
+
+      function tooltipHtmlLabor(n, d){ /* function to create html content string in tooltip div. */
+        return "<h4>"+n+"</h4><p><b>Forced Labor </b><br> per 1,000,000 people</p><table>"+
+
+        "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Female: </td><td align='right'>"+parseFloat(Math.round((d.femalesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "</table>";
+      }    
+
+
+
       /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
       function compareStates(data,state1, state2) {
         showBar(data);
@@ -28,13 +48,13 @@ var selection;
 
       /* Function to calculate the statistical differences between two states */
       function calculateStates(state1, state2) {
-        var state1_labor = state1['Number of forced labor crimes reported'];
-        var state1_sex = state1['Number of sex trade crimes reported'];
         var state1_total = state1['Total trafficking crimes reported'];
-
-        var state2_labor = state2['Number of forced labor crimes reported'];
-        var state2_sex = state2['Number of sex trade crimes reported'];
+        var state1_sex = state1['Number of sex trade crimes reported'];
+        var state1_labor = state1['Number of forced labor crimes reported'];
+          
         var state2_total = state2['Total trafficking crimes reported'];
+        var state2_sex = state2['Number of sex trade crimes reported'];
+        var state2_labor = state2['Number of forced labor crimes reported'];
 
         var more1 = (state1_labor > state2_labor);
         var more2 = (state1_sex > state2_sex);
@@ -210,6 +230,7 @@ var selection;
           compare();
         });
 
+        // View All Trafficking Crimes    
         function viewAllTrafficking() {
           var color = d3.scale.linear()
             .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
@@ -273,7 +294,142 @@ var selection;
         $('#allTraffickingBtn').click(function(){
           viewAllTrafficking();
         });
+          
+        
+        // View All Trafficking Crimes Male 
+        function viewAllTraffickingM() {
+          var color = d3.scale.linear()
+            .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+        
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [0];
 
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.malesTotal,
+            val2.value.malesTotal,
+            val3.value.malesTotal,
+            val4.value.malesTotal,
+            val5.value.malesTotal,
+            val6.value.malesTotal
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].malesTotal);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].totalCrimes)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "malesTotal");
+        }
+        // Add listener to compare button, to compare states
+        $('#allTraffickingBtnM').click(function(){
+          viewAllTraffickingM();
+        });  
+
+        
+        // View All Trafficking Crimes Female 
+        function viewAllTraffickingF() {
+          var color = d3.scale.linear()
+            .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+        
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [0];
+
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.femalesTotal,
+            val2.value.femalesTotal,
+            val3.value.femalesTotal,
+            val4.value.femalesTotal,
+            val5.value.femalesTotal,
+            val6.value.femalesTotal
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].femalesTotal);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].totalCrimes)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "femalesTotal");
+        }
+        // Add listener to compare button, to compare states
+        $('#allTraffickingBtnF').click(function(){
+          viewAllTraffickingF();
+        });    
+          
+          
+          
+        // View All Sex Trade  
         function viewSexTrade() {
           var color = d3.scale.linear()
           .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
@@ -337,7 +493,139 @@ var selection;
         $('#sexTradeBtn').click(function(){
           viewSexTrade();
         });
+          
+        // View All Sex Trade Masculine
+        function viewSexTradeM() {
+          var color = d3.scale.linear()
+          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
 
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [0];
+
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.malesSex,
+            val2.value.malesSex,
+            val3.value.malesSex,
+            val4.value.malesSex,
+            val5.value.malesSex,
+            val6.value.malesSex
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].malesSex);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].malesSex)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "malesSex");
+        }
+        // Add listener to compare button, to compare states
+        $('#sexTradeBtnM').click(function(){
+          viewSexTradeM();
+        });  
+
+        
+        // View All Sex Trade Feminine
+        function viewSexTradeF() {
+          var color = d3.scale.linear()
+          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [0];
+
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.femalesSex,
+            val2.value.femalesSex,
+            val3.value.femalesSex,
+            val4.value.femalesSex,
+            val5.value.femalesSex,
+            val6.value.femalesSex
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].femalesSex);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].femalesSex)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "femalesSex");
+        }
+        // Add listener to compare button, to compare states
+        $('#sexTradeBtnF').click(function(){
+          viewSexTradeF();
+        });   
+          
+        // View All Forced Labor
         function viewForcedLabor() {
           var color = d3.scale.linear()
           .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
@@ -401,96 +689,230 @@ var selection;
         $('#forcedLaborBtn').click(function(){
           viewForcedLabor();
         });
+         
+          
+        // View All Forced Labor Masculine
+        function viewForcedLaborM() {
+          var color = d3.scale.linear()
+          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+        
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [0];
+
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.malesLabor,
+            val2.value.malesLabor,
+            val3.value.malesLabor,
+            val4.value.malesLabor,
+            val5.value.malesLabor,
+            val6.value.malesLabor
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].malesLabor);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].laborTotal)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "malesLabor");
+        }  
+          
+        $('#forcedLaborBtnM').click(function(){
+          viewForcedLaborM();
+        });  
+          
+          
+        // View All Forced Labor Feminine  
+        function viewForcedLaborF() {
+          var color = d3.scale.linear()
+          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+        
+          var val1 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [0];
+
+          var val2 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [5];
+
+          var val3 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [22];
+
+          var val4 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [37];
+
+          var val5 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [48];
+
+          var val6 = d3.entries(data)
+            // sort by value descending
+            .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
+            // take the first option
+            [50];
+
+          color.domain([
+            val1.value.femalesLabor,
+            val2.value.femalesLabor,
+            val3.value.femalesLabor,
+            val4.value.femalesLabor,
+            val5.value.femalesLabor,
+            val6.value.femalesLabor
+          ]);
+
+          var keys = Object.keys(data);
+          /* Interpolate color according to the numbers of tracking crime reported*/
+          keys.forEach(function(d){
+            data[d].color = color(data[d].femalesLabor);
+            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].laborTotal)/30);
+            console.log(data[d].color);*/
+          });
+          /* draw states on id #statesvg */
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "femalesLabor");
+        }    
+          
+        $('#forcedLaborBtnF').click(function(){
+          viewForcedLaborF();
+        });
+            
+
 
     //--------------------------- Begin JQuery Code for Matrix ------------------------
-
-         $("#typeOfCrime").click(function(){
-            $("#gender").slideUp(300); 
-            $("#gender").slideDown(300); 
-            $("#gender").button('reset');
-
-    //        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
-    //        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
-        });  
-
-        $("#clear").click(function(){
-            $("#gender").slideUp(300);
-            $("#typeOfCrime").button('reset');
-            $("#gender").button('reset');
-            selection = "noSelection";
-            typeOfCrimeStr = "noSelection";
-            viewDefault();
-        });  
-
-        $( "#gender" ).click(function(){
-            //$("#view").click();
-        });
-
-
-        $("#view").click(function(){
-            if (document.getElementById('sex').checked) {
-              typeOfCrimeStr = document.getElementById('sex').value;
-            }
-            else if (document.getElementById('labor').checked) {
-              typeOfCrimeStr = document.getElementById('labor').value;
-            }
-            else{
-                typeOfCrimeStr = "";
-            }
-
-
-            if (document.getElementById('male').checked) {
-              selection = document.getElementById('male').value + typeOfCrimeStr;
-                  if (selection == "noSelection"){
-                    return;
-                  }
-                  else{
-                    var keys = Object.keys(data);
-                    /* Interpolate color according to the numbers of tracking crime reported*/
-                    keys.forEach(function(d){
-                      data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
-                    });
-
-                    /* draw states on id #statesvg */
-                    uStates.draw("#statesvg", data, tooltipHtml);
-                  }
-            }
-            else if (document.getElementById('female').checked) {
-                  selection = document.getElementById('female').value + typeOfCrimeStr;
-                  if (selection == "noSelection"){
-                    return;
-                  }
-                  else{
-                    var keys = Object.keys(data);
-                    /* Interpolate color according to the numbers of tracking crime reported*/
-                    keys.forEach(function(d){
-                          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
-                    });
-
-                    /* draw states on id #statesvg */
-                    uStates.draw("#statesvg", data, tooltipHtml);
-                  }
-            }
-            else if (document.getElementById('other').checked) {
-              selection = document.getElementById('other').value + typeOfCrimeStr;
-                  if (selection == "noSelection"){
-                    return;
-                  }
-                  else{
-                    var keys = Object.keys(data);
-                    /* Interpolate color according to the numbers of tracking crime reported*/
-                    keys.forEach(function(d){
-                      data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
-                    });
-
-                    /* draw states on id #statesvg */
-                    uStates.draw("#statesvg", data, tooltipHtml);
-                  }    
-            }
-            else{
-                selection="noSelection";
-            }        
-        });
+//
+//         $("#typeOfCrime").click(function(){
+//            $("#gender").slideUp(300); 
+//            $("#gender").slideDown(300); 
+//            $("#gender").button('reset');
+//
+//    //        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
+//    //        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
+//        });  
+//
+//        $("#clear").click(function(){
+//            $("#gender").slideUp(300);
+//            $("#typeOfCrime").button('reset');
+//            $("#gender").button('reset');
+//            selection = "noSelection";
+//            typeOfCrimeStr = "noSelection";
+//            viewDefault();
+//        });  
+//
+//        $( "#gender" ).click(function(){
+//            //$("#view").click();
+//        });
+//
+//
+//        $("#view").click(function(){
+//            if (document.getElementById('sex').checked) {
+//              typeOfCrimeStr = document.getElementById('sex').value;
+//            }
+//            else if (document.getElementById('labor').checked) {
+//              typeOfCrimeStr = document.getElementById('labor').value;
+//            }
+//            else{
+//                typeOfCrimeStr = "";
+//            }
+//
+//
+//            if (document.getElementById('male').checked) {
+//              selection = document.getElementById('male').value + typeOfCrimeStr;
+//                  if (selection == "noSelection"){
+//                    return;
+//                  }
+//                  else{
+//                    var keys = Object.keys(data);
+//                    /* Interpolate color according to the numbers of tracking crime reported*/
+//                    keys.forEach(function(d){
+//                      data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
+//                    });
+//
+//                    /* draw states on id #statesvg */
+//                    uStates.draw("#statesvg", data, tooltipHtml);
+//                  }
+//            }
+//            else if (document.getElementById('female').checked) {
+//                  selection = document.getElementById('female').value + typeOfCrimeStr;
+//                  if (selection == "noSelection"){
+//                    return;
+//                  }
+//                  else{
+//                    var keys = Object.keys(data);
+//                    /* Interpolate color according to the numbers of tracking crime reported*/
+//                    keys.forEach(function(d){
+//                          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
+//                    });
+//
+//                    /* draw states on id #statesvg */
+//                    uStates.draw("#statesvg", data, tooltipHtml);
+//                  }
+//            }
+//            else if (document.getElementById('other').checked) {
+//              selection = document.getElementById('other').value + typeOfCrimeStr;
+//                  if (selection == "noSelection"){
+//                    return;
+//                  }
+//                  else{
+//                    var keys = Object.keys(data);
+//                    /* Interpolate color according to the numbers of tracking crime reported*/
+//                    keys.forEach(function(d){
+//                      data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
+//                    });
+//
+//                    /* draw states on id #statesvg */
+//                    uStates.draw("#statesvg", data, tooltipHtml);
+//                  }    
+//            }
+//            else{
+//                selection="noSelection";
+//            }        
+//        });
 
     //--------------------------- End JQuery Code for Matrix ------------------------
 
@@ -512,7 +934,7 @@ var selection;
       .range([0, height]);
 
       var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#5bc0de", "#d9534f", "#f0ad4e", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
       var xAxis = d3.svg.axis()
       .scale(x0)
@@ -533,7 +955,7 @@ var selection;
       console.log(keys);
       data.forEach(function(d) {
         d.data = keys.map(function(name) { return {name: name, value: +d[name]}; });
-      });
+      });  
 
       x0.domain(data.map(function(d) { return d.State; }));
       x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
@@ -566,7 +988,7 @@ var selection;
       .data(function(d) { return d.data; })
       .enter()
       .append("rect")
-      .attr("width", x1.rangeBand()-50)
+      .attr("width", x1.rangeBand()-5)
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", height)
       .attr("height", 0)
@@ -582,10 +1004,11 @@ var selection;
       .attr("x", function(d) { return x1(d.name) + 30; })
       .attr("y", function(d) { return height - y(d.value + 1); })
       .attr("text-anchor", "middle")
-      .text(function(d, i) { return d.value; });
+      .text(function(d, i) { return (Math.round((d.value)  * 100) / 100).toFixed(2); });
+        
 
       var legend = svg.selectAll(".legend")
-      .data(keys.slice().reverse())
+      .data(keys.slice())
       .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
