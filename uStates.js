@@ -71,7 +71,7 @@
     if (selected === "totalCrimes" || selected === "malesTotal" || selected === "femalesTotal") {
         var color = d3.scale.linear()
           .range(["#C5E6F9", "#86C9F4", "#3FA9E4", "#057FC3", "#0162A2", "#054280"]);
-    } else if (selected === "sexTotal" || selected === "malesSex" || selected === "femaleSex") {
+    } else if (selected === "sexTotal" || selected === "malesSex" || selected === "femalesSex") {
         var color = d3.scale.linear()
          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
     } else {

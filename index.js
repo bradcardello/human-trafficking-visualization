@@ -626,6 +626,7 @@ d3.json("data.json", function(error, data) {
       case "sexTradeBtnF":
         viewSexTradeF();
         groupSelectedBar = "Sex Trade (Female)";
+        break;
       case "forcedLaborBtn":
         viewForcedLabor();
         groupSelectedBar = "Forced Labor";
