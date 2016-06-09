@@ -1,7 +1,7 @@
 .chart rect {
   fill: steelblue;
 }
-
+ 
 .chart text {
   fill: white;
   font: 10px sans-serif;
@@ -106,8 +106,7 @@ p{
   }
   
   #footer .container{
-    max-width: 1300px;
-     
+    max-width: 1300px;  
      }
 
   #bottom-footer{
