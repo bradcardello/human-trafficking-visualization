@@ -1,3 +1,6 @@
+// Variable to select which category to show in the bar graph
+var groupSelectedBar = "All Human Trafficking";
+
 var selection;
       var typeOfCrimeStr;
         /*Clear the modal #bar graph html on close so that next one starts with a clean state*/
@@ -8,7 +11,7 @@ var selection;
       // Initialize chosen library for better option selection
       $('.chosen-select').chosen();
       function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4>"+n+"</h4><p>per 1,000,000 people</p><table>"+
+        return "<h4 style='color: red;'>"+n+"</h4><p>per 1,000,000 people</p><table>"+
 
         "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
           "<tr><td align='left'>Sex trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
@@ -17,7 +20,7 @@ var selection;
       }
 
       function tooltipHtmlSex(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4>"+n+"</h4><p><b>Sex Trade</b><br> per 1,000,000 people</p><table>"+
+        return "<h4 style='color: red;'>"+n+"</h4><p><b>Sex Trade</b> <br> per 1,000,000 people</p><table>"+
 
         "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
           "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
@@ -26,7 +29,7 @@ var selection;
       }  
 
       function tooltipHtmlLabor(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4>"+n+"</h4><p><b>Forced Labor </b><br> per 1,000,000 people</p><table>"+
+        return "<h4 style='color: red;'>"+n+"</h4><b>Forced Labor</b> <br> <p>per 1,000,000 people</p><table>"+
 
         "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
           "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
@@ -35,26 +38,25 @@ var selection;
       }    
 
 
-
       /*Function to compare two states, change modal title, show bar graph on modal, show bootstrap modal*/
       function compareStates(data,state1, state2) {
         showBar(data);
         console.log(data);
         calculateStates(data[0], data[1]);
-        var title = state1 + " VS. " + state2;
+        var title = groupSelectedBar + " - " + state1 + " VS. " + state2;
         $('.modal-title').text(title);
         $('#myModal').modal('show');
       };
 
       /* Function to calculate the statistical differences between two states */
       function calculateStates(state1, state2) {
-        var state1_total = state1['Total trafficking crimes reported'];
-        var state1_sex = state1['Number of sex trade crimes reported'];
-        var state1_labor = state1['Number of forced labor crimes reported'];
+        var state1_total = state1['Total'];
+        var state1_sex = state1['Male'];
+        var state1_labor = state1['Female'];
           
-        var state2_total = state2['Total trafficking crimes reported'];
-        var state2_sex = state2['Number of sex trade crimes reported'];
-        var state2_labor = state2['Number of forced labor crimes reported'];
+        var state2_total = state2['Total'];
+        var state2_sex = state2['Male'];
+        var state2_labor = state2['Female'];
 
         var more1 = (state1_labor > state2_labor);
         var more2 = (state1_sex > state2_sex);
@@ -163,9 +165,12 @@ var selection;
 
         function compare() {
           var arr = [];
+          // Get values from selectors for both states    
           var state1 = $('#state1').val(); //get value from input
           var state2 = $('#state2').val();
 
+          // Get value from button that has been clicked.
+          // do that in the scope of the clicked funtions
           var viewFemale = $('#viewFemale').val();
           var viewMale = $('#viewMale').val();
           var viewOther = $('#viewOther').val();
@@ -199,7 +204,8 @@ var selection;
               legendMessage = "Forced Labor Crimes per 1,000,000 Other Genders";
             }
           }
-
+          
+        if (groupSelectedBar == "All Human Trafficking"){  
           //Get all state abbreviation 
           var keys = Object.keys(data);
           var length = keys.length;
@@ -208,23 +214,75 @@ var selection;
           for (var i = 0; i < length; i++) {
             if (keys[i] == state1){
                 arr.push({"State": d3.select('#' + state1).attr("name"),
-                "Total trafficking crimes reported": data[state1].totalCrimes,
-                "Number of sex trade crimes reported": data[state1].sexTraffickingCrimesReported,
-                "Number of forced labor crimes reported": data[state1].forcedLaborCrimesReported
+                "Total": data[state1].totalCrimes,
+                "Male": data[state1].malesTotal,
+                "Female": data[state1].femalesTotal
               });
             }
             if (keys[i] == state2){
               arr.push({"State": d3.select('#' + state2).attr("name"),
-                "Total trafficking crimes reported": data[state2].totalCrimes,
-                "Number of sex trade crimes reported": data[state2].sexTraffickingCrimesReported,
-                "Number of forced labor crimes reported": data[state2].forcedLaborCrimesReported
+                "Total": data[state2].totalCrimes,
+                "Male": data[state2].malesTotal,
+                "Female": data[state2].femalesTotal
 
               });
             }
           }
-          // Call compare states
-          compareStates(arr,d3.select('#' + state1).attr("name"), d3.select('#' + state2).attr("name"));
         }
+          else if (groupSelectedBar == "Sex Trade"){
+            //Get all state abbreviation 
+            var keys = Object.keys(data);
+            var length = keys.length;
+
+            // Compose data to the compare function
+            for (var i = 0; i < length; i++) {
+              if (keys[i] == state1){
+                  arr.push({"State": d3.select('#' + state1).attr("name"),
+                  "Total": data[state1].sexTraffickingCrimesReported,
+                  "Male": data[state1].malesSex,
+                  "Female": data[state1].femalesSex
+                });
+              }
+              if (keys[i] == state2){
+                arr.push({"State": d3.select('#' + state2).attr("name"),
+                  "Total": data[state2].sexTraffickingCrimesReported,
+                  "Male": data[state2].malesSex,
+                  "Female": data[state2].femalesSex
+                });
+              }
+            }
+          }
+          else if (groupSelectedBar == "Forced Labor"){
+            //Get all state abbreviation 
+            var keys = Object.keys(data);
+            var length = keys.length;
+
+            // Compose data to the compare function
+            for (var i = 0; i < length; i++) {
+              if (keys[i] == state1){
+                  arr.push({"State": d3.select('#' + state1).attr("name"),
+                  "Total": data[state1].forcedLaborCrimesReported,
+                  "Male": data[state1].malesLabor,
+                  "Female": data[state1].femalesLabor
+                });
+              }
+              if (keys[i] == state2){
+                arr.push({"State": d3.select('#' + state2).attr("name"),
+                  "Total": data[state2].forcedLaborCrimesReported,
+                  "Male": data[state2].malesLabor,
+                  "Female": data[state2].femalesLabor
+
+                });
+              }
+            }
+          }
+          
+          //Call Compare States
+          compareStates(arr,d3.select('#' + state1).attr("name"), d3.select('#' + state2).attr("name"));
+
+        }
+          
+
         // Add listener to compare button, to compare states
         $('#compare').click(function(){
           compare();
@@ -293,6 +351,7 @@ var selection;
         // Add listener to compare button, to compare states
         $('#allTraffickingBtn').click(function(){
           viewAllTrafficking();
+          groupSelectedBar = "All Human Trafficking";
         });
           
         
@@ -359,6 +418,7 @@ var selection;
         // Add listener to compare button, to compare states
         $('#allTraffickingBtnM').click(function(){
           viewAllTraffickingM();
+          groupSelectedBar = "All Human Trafficking";
         });  
 
         
@@ -425,6 +485,7 @@ var selection;
         // Add listener to compare button, to compare states
         $('#allTraffickingBtnF').click(function(){
           viewAllTraffickingF();
+          groupSelectedBar = "All Human Trafficking";
         });    
           
           
@@ -487,11 +548,13 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtml, "sexTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "sexTotal");
         }
         // Add listener to compare button, to compare states
         $('#sexTradeBtn').click(function(){
           viewSexTrade();
+          groupSelectedBar = "Sex Trade";
+
         });
           
         // View All Sex Trade Masculine
@@ -557,6 +620,7 @@ var selection;
         // Add listener to compare button, to compare states
         $('#sexTradeBtnM').click(function(){
           viewSexTradeM();
+          groupSelectedBar = "Sex Trade";
         });  
 
         
@@ -623,6 +687,7 @@ var selection;
         // Add listener to compare button, to compare states
         $('#sexTradeBtnF').click(function(){
           viewSexTradeF();
+          groupSelectedBar = "Sex Trade";
         });   
           
         // View All Forced Labor
@@ -683,11 +748,12 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtml, "laborTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "laborTotal");
         }
         // Add listener to compare button, to compare states
         $('#forcedLaborBtn').click(function(){
           viewForcedLabor();
+          groupSelectedBar = "Forced Labor";
         });
          
           
@@ -754,6 +820,7 @@ var selection;
           
         $('#forcedLaborBtnM').click(function(){
           viewForcedLaborM();
+          groupSelectedBar = "Forced Labor";
         });  
           
           
@@ -820,103 +887,67 @@ var selection;
           
         $('#forcedLaborBtnF').click(function(){
           viewForcedLaborF();
+          groupSelectedBar = "Forced Labor";
         });
-            
-
-
-    //--------------------------- Begin JQuery Code for Matrix ------------------------
-//
-//         $("#typeOfCrime").click(function(){
-//            $("#gender").slideUp(300); 
-//            $("#gender").slideDown(300); 
-//            $("#gender").button('reset');
-//
-//    //        typeOfCrimeStr = document.querySelector('input[name="typeOfCrimeName"]:checked').value;
-//    //        $( "#p" ).html( "Type of Crime: " + typeOfCrimeStr + ", Gender: " + selection );
-//        });  
-//
-//        $("#clear").click(function(){
-//            $("#gender").slideUp(300);
-//            $("#typeOfCrime").button('reset');
-//            $("#gender").button('reset');
-//            selection = "noSelection";
-//            typeOfCrimeStr = "noSelection";
-//            viewDefault();
-//        });  
-//
-//        $( "#gender" ).click(function(){
-//            //$("#view").click();
-//        });
-//
-//
-//        $("#view").click(function(){
-//            if (document.getElementById('sex').checked) {
-//              typeOfCrimeStr = document.getElementById('sex').value;
-//            }
-//            else if (document.getElementById('labor').checked) {
-//              typeOfCrimeStr = document.getElementById('labor').value;
-//            }
-//            else{
-//                typeOfCrimeStr = "";
-//            }
-//
-//
-//            if (document.getElementById('male').checked) {
-//              selection = document.getElementById('male').value + typeOfCrimeStr;
-//                  if (selection == "noSelection"){
-//                    return;
-//                  }
-//                  else{
-//                    var keys = Object.keys(data);
-//                    /* Interpolate color according to the numbers of tracking crime reported*/
-//                    keys.forEach(function(d){
-//                      data[d].color = d3.interpolate("#fee5d9", "#a50f15")(Math.sqrt(data[d][selection]));
-//                    });
-//
-//                    /* draw states on id #statesvg */
-//                    uStates.draw("#statesvg", data, tooltipHtml);
-//                  }
-//            }
-//            else if (document.getElementById('female').checked) {
-//                  selection = document.getElementById('female').value + typeOfCrimeStr;
-//                  if (selection == "noSelection"){
-//                    return;
-//                  }
-//                  else{
-//                    var keys = Object.keys(data);
-//                    /* Interpolate color according to the numbers of tracking crime reported*/
-//                    keys.forEach(function(d){
-//                          data[d].color = d3.interpolate("#f2f0f7", "#54278f")(Math.sqrt(data[d][selection])/2);
-//                    });
-//
-//                    /* draw states on id #statesvg */
-//                    uStates.draw("#statesvg", data, tooltipHtml);
-//                  }
-//            }
-//            else if (document.getElementById('other').checked) {
-//              selection = document.getElementById('other').value + typeOfCrimeStr;
-//                  if (selection == "noSelection"){
-//                    return;
-//                  }
-//                  else{
-//                    var keys = Object.keys(data);
-//                    /* Interpolate color according to the numbers of tracking crime reported*/
-//                    keys.forEach(function(d){
-//                      data[d].color = d3.interpolate("#edf8e9", "#006d2c")(Math.sqrt(data[d][selection]));
-//                    });
-//
-//                    /* draw states on id #statesvg */
-//                    uStates.draw("#statesvg", data, tooltipHtml);
-//                  }    
-//            }
-//            else{
-//                selection="noSelection";
-//            }        
-//        });
-
-    //--------------------------- End JQuery Code for Matrix ------------------------
-
       });
+
+
+// -------------------- Bar Chart at Bottom for All States----------------------
+//        var width = 420,
+//            barHeight = 20;
+//
+//        var x = d3.scale.linear()
+//            .range([0, width]);
+//
+//        var chart = d3.select(".chart")
+//            .attr("width", width);
+//
+//        d3.tsv("Workbook2.tsv", type, function(error, data) {
+//          x.domain([0, d3.max(data, function(d) { return d.value; })]);
+//
+//          chart.attr("height", barHeight * data.length);
+//
+//          var bar = chart.selectAll("g")
+//              .data(data)
+//            .enter().append("g")
+//              .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+//
+//          bar.append("rect")
+//              .attr("width", function(d) { return x(d.value); })
+//              .attr("height", barHeight - 1);
+//
+//          bar.append("text")
+//              .attr("x", function(d) { return x(d.value) - 3; })
+//              .attr("y", barHeight / 2)
+//              .attr("dy", ".35em")
+//              .text(function(d) { return d.stateName; });
+//
+//              //.text(function(d) { return (Math.round(d.value).toFixed(2)); });
+//            
+//        });
+//
+//        function type(d) {
+//          d.value = +d.value; // coerce to number
+//          return d;
+//        }
+//
+//        var sortBars = function() {
+//            svg.selectAll("rect")
+//               .sort(function(a, b) {
+//                   return d3.ascending(a, b);
+//                })
+//               .transition()
+//               .duration(1000)
+//               .attr("x", function(d, i) {
+//                    return xScale(i);
+//               });
+//        };	
+//        
+//        $('#forcedLaborBtnF').click(function(){
+//            sortBars();
+//        });
+//
+// -----------------------------------------------------------------------------  
 
 
 
@@ -926,24 +957,24 @@ var selection;
       height = 500 - margin.top - margin.bottom;
 
       var x0 = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1);
+        .rangeRoundBands([0, width], .1);
 
       var x1 = d3.scale.ordinal();
 
       var y = d3.scale.linear()
-      .range([0, height]);
+        .range([0, height]);
 
       var color = d3.scale.ordinal()
-      .range(["#5bc0de", "#d9534f", "#f0ad4e", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        .range(["#5bc0de", "#d9534f", "#f0ad4e", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
       var xAxis = d3.svg.axis()
-      .scale(x0)
-      .orient("bottom");
+          .scale(x0)
+          .orient("bottom");
 
       var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left")
-      .tickFormat(d3.format(".2s"));
+          .scale(y)
+          .orient("left")
+          .tickFormat(d3.format(".2s"));
 
       var svg = d3.select("#bar").append("svg")
       .attr("width", width + margin.left + margin.right)

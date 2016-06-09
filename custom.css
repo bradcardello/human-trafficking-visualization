@@ -1,4 +1,13 @@
-  
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
 h1{
     font-family: gandhi_serifregular,"Georgia",Times New Roman,serif;
     font-style: normal;
