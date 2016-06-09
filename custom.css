@@ -2,7 +2,7 @@
 h1{
     font-family: gandhi_serifregular,"Georgia",Times New Roman,serif;
     font-style: normal;
-    font-size: 4.4rem;
+    font-size: 4.0rem;
     line-height: 1.12;
     letter-spacing: -0.9px;
     margin-bottom: .5em;
@@ -80,9 +80,14 @@ p{
     background: rgb(241, 241, 241);
     border-top: 1px solid rgb(222, 222, 222);
     margin-top: -2px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    margin-left: 85px; 
+    margin-right: 85px;
+    margin-bottom: 25px;
   }
+
   .foot-header{
     font-family: OpenSansBold, Arial, sans-serif;
     font-size: 18px;
@@ -93,7 +98,9 @@ p{
   
   #footer .container{
     max-width: 1300px;
-  }
+     
+     }
+
   #bottom-footer{
     margin-bottom: 20px;
     border-top: 1px solid #ccc;
