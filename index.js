@@ -11,16 +11,16 @@ var selection;
       // Initialize chosen library for better option selection
       $('.chosen-select').chosen();
       function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4 style='color: red;'>"+n+"</h4><p>per 1,000,000 people</p><table>"+
+        return "<h4 style='color: blue;'>"+n+"</h4><p>Per 1,000,000 People</p><table>"+
 
         "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
-          "<tr><td align='left'>Sex trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
-          "<tr><td align='left'>Forced labor: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Sex Trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
+          "<tr><td align='left'>Forced Labor: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
           "</table>";
       }
 
       function tooltipHtmlSex(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4 style='color: red;'>"+n+"</h4><p><b>Sex Trade</b> <br> per 1,000,000 people</p><table>"+
+        return "<h4 style='color: blue;'>"+n+"</h4><p><b>Sex Trade</b> <br> per 1,000,000 people</p><table>"+
 
         "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
           "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
@@ -29,7 +29,7 @@ var selection;
       }  
 
       function tooltipHtmlLabor(n, d){ /* function to create html content string in tooltip div. */
-        return "<h4 style='color: red;'>"+n+"</h4><b>Forced Labor</b> <br> <p>per 1,000,000 people</p><table>"+
+        return "<h4 style='color: blue;'>"+n+"</h4><b>Forced Labor </b> <br> <p>per 1,000,000 people</p><table>"+
 
         "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
           "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
