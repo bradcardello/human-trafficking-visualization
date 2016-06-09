@@ -110,36 +110,38 @@ var selection;
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
           [0];
-        
+
         var val2 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
-          [5];
-        
+          [3];
+
         var val3 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
-          [22];
-        
+          [18];
+
         var val4 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
-          [37];
-        
+          [36];
+
         var val5 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
-          [48];
-        
+          [46];
+
         var val6 = d3.entries(data)
           // sort by value descending
           .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
           // take the first option
           [50];
+        
+        var valArray = [val1, val2, val3, val4, val5, val6];
 
         color.domain([
           val1.value.totalCrimes,
@@ -149,7 +151,7 @@ var selection;
           val5.value.totalCrimes,
           val6.value.totalCrimes
         ]);
-
+        
         var keys = Object.keys(data);
         /* Interpolate color according to the numbers of tracking crime reported*/
         keys.forEach(function(d){
@@ -159,13 +161,13 @@ var selection;
         });
 
         /* draw states on id #statesvg */
-        var svg = uStates.draw("#statesvg", data, tooltipHtml, "totalCrimes");
+        var svg = uStates.draw("#statesvg", data, tooltipHtml, "totalCrimes", valArray);
 
         /* Helper functions for when the viewer selects a different data variable to view */
 
         function compare() {
           var arr = [];
-          // Get values from selectors for both states    
+          // Get values from selectors for both states
           var state1 = $('#state1').val(); //get value from input
           var state2 = $('#state2').val();
 
@@ -204,8 +206,8 @@ var selection;
               legendMessage = "Forced Labor Crimes per 1,000,000 Other Genders";
             }
           }
-          
-        if (groupSelectedBar == "All Human Trafficking"){  
+
+        if (groupSelectedBar == "All Human Trafficking"){
           //Get all state abbreviation 
           var keys = Object.keys(data);
           var length = keys.length;
@@ -230,7 +232,7 @@ var selection;
           }
         }
           else if (groupSelectedBar == "Sex Trade"){
-            //Get all state abbreviation 
+            //Get all state abbreviation
             var keys = Object.keys(data);
             var length = keys.length;
 
@@ -253,7 +255,7 @@ var selection;
             }
           }
           else if (groupSelectedBar == "Forced Labor"){
-            //Get all state abbreviation 
+            //Get all state abbreviation
             var keys = Object.keys(data);
             var length = keys.length;
 
@@ -276,12 +278,12 @@ var selection;
               }
             }
           }
-          
+
           //Call Compare States
           compareStates(arr,d3.select('#' + state1).attr("name"), d3.select('#' + state2).attr("name"));
 
         }
-          
+
 
         // Add listener to compare button, to compare states
         $('#compare').click(function(){
@@ -294,40 +296,42 @@ var selection;
             .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
         
           var val1 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
-            // take the first option
-            [0];
+          // sort by value descending
+          .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
+          // take the first option
+          [0];
 
           var val2 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
             // take the first option
-            [5];
+            [3];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
             // take the first option
-            [22];
+            [18];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
             // take the first option
-            [37];
+            [36];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
             // take the first option
-            [48];
+            [46];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.totalCrimes, b.value.totalCrimes); })
             // take the first option
             [50];
+        
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.totalCrimes,
@@ -337,16 +341,14 @@ var selection;
             val5.value.totalCrimes,
             val6.value.totalCrimes
           ]);
-
+          
           var keys = Object.keys(data);
           /* Interpolate color according to the numbers of tracking crime reported*/
           keys.forEach(function(d){
             data[d].color = color(data[d].totalCrimes);
-            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].totalCrimes)/30);
-            console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtml, "totalCrimes");
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "totalCrimes", valArray);
         }
         // Add listener to compare button, to compare states
         $('#allTraffickingBtn').click(function(){
@@ -370,19 +372,19 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
             // take the first option
-            [5];
+            [15];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
             // take the first option
-            [22];
+            [35];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
             // take the first option
-            [37];
+            [45];
 
           var val5 = d3.entries(data)
             // sort by value descending
@@ -395,6 +397,8 @@ var selection;
             .sort(function(a, b) { return d3.ascending(a.value.malesTotal, b.value.malesTotal); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.malesTotal,
@@ -409,11 +413,9 @@ var selection;
           /* Interpolate color according to the numbers of tracking crime reported*/
           keys.forEach(function(d){
             data[d].color = color(data[d].malesTotal);
-            /*data[d].color = d3.interpolate("#fee5d9", "#99000d")((data[d].totalCrimes)/30);
-            console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtml, "malesTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "malesTotal", valArray);
         }
         // Add listener to compare button, to compare states
         $('#allTraffickingBtnM').click(function(){
@@ -437,31 +439,33 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
             // take the first option
-            [5];
+            [3];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
             // take the first option
-            [22];
+            [28];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
             // take the first option
-            [37];
+            [42];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
             // take the first option
-            [48];
+            [47];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesTotal, b.value.femalesTotal); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.femalesTotal,
@@ -480,7 +484,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtml, "femalesTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "femalesTotal", valArray);
         }
         // Add listener to compare button, to compare states
         $('#allTraffickingBtnF').click(function(){
@@ -505,31 +509,33 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.sexTotal, b.value.sexTotal); })
             // take the first option
-            [5];
+            [11];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.sexTotal, b.value.sexTotal); })
             // take the first option
-            [22];
+            [30];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.sexTotal, b.value.sexTotal); })
             // take the first option
-            [37];
+            [46];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.sexTotal, b.value.sexTotal); })
             // take the first option
-            [48];
+            [49];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.sexTotal, b.value.sexTotal); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.sexTotal,
@@ -539,7 +545,7 @@ var selection;
             val5.value.sexTotal,
             val6.value.sexTotal
           ]);
-
+          
           var keys = Object.keys(data);
           /* Interpolate color according to the numbers of tracking crime reported*/
           keys.forEach(function(d){
@@ -548,7 +554,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "sexTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "sexTotal", valArray);
         }
         // Add listener to compare button, to compare states
         $('#sexTradeBtn').click(function(){
@@ -557,10 +563,10 @@ var selection;
 
         });
           
-        // View All Sex Trade Masculine
+        // View All Sex Trade Male
         function viewSexTradeM() {
           var color = d3.scale.linear()
-          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+            .range(["#fee0d2", "#fc9272", "#de2d26"]);
 
           var val1 = d3.entries(data)
             // sort by value descending
@@ -572,41 +578,22 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
             // take the first option
-            [5];
+            [45];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
             // take the first option
-            [22];
-
-          var val4 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
-            // take the first option
-            [37];
-
-          var val5 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
-            // take the first option
-            [48];
-
-          var val6 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesSex, b.value.malesSex); })
-            // take the first option
-            [50];
+            [49];
+          
+          var valArray = [val1, val2, val3];
 
           color.domain([
             val1.value.malesSex,
             val2.value.malesSex,
             val3.value.malesSex,
-            val4.value.malesSex,
-            val5.value.malesSex,
-            val6.value.malesSex
           ]);
-
+          
           var keys = Object.keys(data);
           /* Interpolate color according to the numbers of tracking crime reported*/
           keys.forEach(function(d){
@@ -615,7 +602,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "malesSex");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "malesSex", valArray);
         }
         // Add listener to compare button, to compare states
         $('#sexTradeBtnM').click(function(){
@@ -624,7 +611,7 @@ var selection;
         });  
 
         
-        // View All Sex Trade Feminine
+        // View All Sex Trade Female
         function viewSexTradeF() {
           var color = d3.scale.linear()
           .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
@@ -639,31 +626,33 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
             // take the first option
-            [5];
+            [11];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
             // take the first option
-            [22];
+            [32];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
             // take the first option
-            [37];
+            [46];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
             // take the first option
-            [48];
+            [49];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesSex, b.value.femalesSex); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.femalesSex,
@@ -682,7 +671,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "femalesSex");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlSex, "femalesSex", valArray);
         }
         // Add listener to compare button, to compare states
         $('#sexTradeBtnF').click(function(){
@@ -711,25 +700,27 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.laborTotal, b.value.laborTotal); })
             // take the first option
-            [22];
+            [24];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.laborTotal, b.value.laborTotal); })
             // take the first option
-            [37];
+            [44];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.laborTotal, b.value.laborTotal); })
             // take the first option
-            [48];
+            [47];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.laborTotal, b.value.laborTotal); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.laborTotal,
@@ -748,7 +739,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "laborTotal");
+          var svg = uStates.draw("#statesvg", data, tooltipHtml, "laborTotal", valArray);
         }
         // Add listener to compare button, to compare states
         $('#forcedLaborBtn').click(function(){
@@ -760,7 +751,7 @@ var selection;
         // View All Forced Labor Masculine
         function viewForcedLaborM() {
           var color = d3.scale.linear()
-          .range(["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#99000d"]);
+          .range(["#fee5d9", "#fcae91", "#fb6a4a", "cb181d"]);
         
           var val1 = d3.entries(data)
             // sort by value descending
@@ -772,40 +763,25 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
             // take the first option
-            [5];
+            [26];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
             // take the first option
-            [22];
+            [42];
+          
 
-          var val4 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
-            // take the first option
-            [37];
-
-          var val5 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
-            // take the first option
-            [48];
-
-          var val6 = d3.entries(data)
-            // sort by value descending
-            .sort(function(a, b) { return d3.ascending(a.value.malesLabor, b.value.malesLabor); })
-            // take the first option
-            [50];
+          var valArray = [val1, val2, val3];
 
           color.domain([
             val1.value.malesLabor,
             val2.value.malesLabor,
-            val3.value.malesLabor,
-            val4.value.malesLabor,
-            val5.value.malesLabor,
-            val6.value.malesLabor
+            val3.value.malesLabor
           ]);
+          
+          console.log(color.range());
+          console.log(color.domain());
 
           var keys = Object.keys(data);
           /* Interpolate color according to the numbers of tracking crime reported*/
@@ -815,7 +791,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "malesLabor");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "malesLabor", valArray);
         }  
           
         $('#forcedLaborBtnM').click(function(){
@@ -839,31 +815,33 @@ var selection;
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
             // take the first option
-            [5];
+            [18];
 
           var val3 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
             // take the first option
-            [22];
+            [43];
 
           var val4 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
             // take the first option
-            [37];
+            [46];
 
           var val5 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
             // take the first option
-            [48];
+            [47];
 
           var val6 = d3.entries(data)
             // sort by value descending
             .sort(function(a, b) { return d3.ascending(a.value.femalesLabor, b.value.femalesLabor); })
             // take the first option
             [50];
+          
+          var valArray = [val1, val2, val3, val4, val5, val6];
 
           color.domain([
             val1.value.femalesLabor,
@@ -882,7 +860,7 @@ var selection;
             console.log(data[d].color);*/
           });
           /* draw states on id #statesvg */
-          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "femalesLabor");
+          var svg = uStates.draw("#statesvg", data, tooltipHtmlLabor, "femalesLabor", valArray);
         }    
           
         $('#forcedLaborBtnF').click(function(){
@@ -923,7 +901,7 @@ var selection;
 //              .text(function(d) { return d.stateName; });
 //
 //              //.text(function(d) { return (Math.round(d.value).toFixed(2)); });
-//            
+//
 //        });
 //
 //        function type(d) {
@@ -941,13 +919,13 @@ var selection;
 //               .attr("x", function(d, i) {
 //                    return xScale(i);
 //               });
-//        };	
-//        
+//        };
+//
 //        $('#forcedLaborBtnF').click(function(){
 //            sortBars();
 //        });
 //
-// -----------------------------------------------------------------------------  
+// -----------------------------------------------------------------------------
 
 
 

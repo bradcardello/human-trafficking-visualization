@@ -92,7 +92,7 @@ p{
     padding-top: 0px;
     padding-bottom: 5px;
     padding-left: 25px;
-    margin-left: 85px; 
+    margin-left: 85px;
     margin-right: 85px;
     margin-bottom: 25px;
   }
@@ -106,7 +106,12 @@ p{
   }
   
   #footer .container{
+<<<<<<< HEAD
     max-width: 1300px;  
+=======
+    max-width: 1300px;
+
+>>>>>>> origin/master
      }
 
   #bottom-footer{
