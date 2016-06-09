@@ -18,6 +18,7 @@ h1{
     margin-top: 0;
     color: #222;
     text-align: center;
+    text-decoration: underline;
 }
 
 #toHelp{
@@ -106,12 +107,12 @@ p{
   }
   
   #footer .container{
-<<<<<<< HEAD
+
     max-width: 1300px;  
-=======
+
     max-width: 1300px;
 
->>>>>>> origin/master
+
      }
 
   #bottom-footer{
@@ -259,9 +260,13 @@ p{
   }
   #tooltip h4{
     margin:0;
-    font-size:14px;
+    font-size:16px;
    
   }
+#tooltip h5 {
+    font: bold;
+   
+}
   #tooltip{
     background:rgba(0,0,0,0.9);
   /*  border:1px solid grey;*/
