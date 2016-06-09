@@ -6,7 +6,7 @@ var typeOfCrimeStr;
 /* function to create html content string in tooltip div. */
 function tooltipHtml(n, d) {
   return "<h4 style='color: blue;'>"+n+"</h4><p>Per 1,000,000 People</p><table>"+
-  
+  "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Sex trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Forced labor: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
       "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"
@@ -25,7 +25,7 @@ function tooltipHtmlSex(n, d) {
 
 /* function to create html content string in tooltip div. */
 function tooltipHtmlLabor(n, d) {
-  return "<h4 style='color: blue;'>"+n+"</h4><b>Forced Labor</b> <br> <p>Per 1,000,000 People</p><table>"+
+  return "<h4 style='color: blue;'>"+n+"</h4> <br> <b>Forced Labor</b> <br> <p>Per 1,000,000 People</p><table>"+
   
     "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Female: </td><td align='right'>"+parseFloat(Math.round((d.femalesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
@@ -674,28 +674,28 @@ d3.json("data.json", function(error, data) {
     var p2 = Math.abs(Math.floor((state1_sex - state2_sex) / state1_sex * 100));
     var p3 = Math.abs(Math.floor((state1_total - state2_total) / state1_total * 100));
 
-    var s1, s2, s3;
-    if (more1) {
-      s1 = state1.State + ' has ' + p1 + "% more forced labor crimes reported than " + state2.State;
-    } else {
-      s1 = state1.State + ' has ' + p1 + "% less forced labor crimes reported than " + state2.State;
-    }
+     var s1, s2, s3;
+   if (more1) {
+     s1 = state1.State + ' has ' + p1 + "% more crimes reported than " + state2.State;
+   } else {
+     s1 = state1.State + ' has ' + p1 + "% less crimes reported than " + state2.State;
+   }
 
-    if (more2) {
-      s2 = state1.State + ' has ' + p2 + "% more sex trade crimes than " + state2.State;
-    } else {
-      s2 = state1.State + ' has ' + p2 + "% less sex trade crimes than " + state2.State;
-    }
+   if (more2) {
+     s2 = state1.State + ' has ' + p2 + "% more male victms than " + state2.State;
+   } else {
+     s2 = state1.State + ' has ' + p2 + "% less male victms than " + state2.State;
+   }
 
-    if (more3) {
-      s3 = state1.State + ' has ' + p3 + "% more total trafficking crimes " + state2.State;
-    } else {
-      s3 =state1.State + ' has ' + p3 + "% less total trafficking crimes " + state2.State;
-    }
-    var innerHTML = '<p>' + s1 + '</p>' + '<p>' + s2 + '</p>' + '<p>' + s3 + '</p>';
-    console.log(s1, s2, s3);
-    $('#text').html(innerHTML);
-  }
+   if (more3) {
+     s3 = state1.State + ' has ' + p3 + "% more female victms " + state2.State;
+   } else {
+     s3 =state1.State + ' has ' + p3 + "% less female victms " + state2.State;
+   }
+   var innerHTML = '<p>' + s1 + '</p>' + '<p>' + s2 + '</p>' + '<p>' + s3 + '</p>';
+   console.log(s1, s2, s3);
+   $('#text').html(innerHTML);
+ }
 
   function prepareBarGraphData() {
     var arr = [];

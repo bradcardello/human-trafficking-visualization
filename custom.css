@@ -20,6 +20,10 @@ h1{
     text-align: center;
 }
 
+h2{
+   font-family: "Georgia",Times New Roman,serif;
+}
+
 #toHelp{
     margin-top: 100px;
     font-family: gandhi_serifregular,"Georgia",Times New Roman,serif;
