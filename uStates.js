@@ -113,6 +113,7 @@
         return 'translate(' + horz + ',' + vert + ')';
       });
 
+    // create the map legend
     legend.append('rect')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
