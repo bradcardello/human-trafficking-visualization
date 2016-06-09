@@ -233,6 +233,11 @@ p{
     display: none;
   }
 
+.col-sm-3 {
+   
+    text-decoration: none;
+    
+}
   .state{
     fill: none;
     stroke: #a9a9a9;
