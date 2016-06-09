@@ -22,85 +22,72 @@
       <div class="page-header">
         <h1>Human Trafficking: Sex Trade and Forced Labor</h1>
       </div>
-
         <p>Despite popular belief, human trafficking is ramp;ant in the US and the scale is shocking. Most sex and labor slave happens in border states such as California, Texas and Florida. Also, surprisingly North Dakota and Ohio are the main hubs for human trafficking.</p>
     </div>
       <br>
     <div class="container">
       <div class='row'>
         <div class='col-md-10'>
+          <h2 id='graph-title'>All Human Trafficking</h2>
           <!-- svg to hold the map. -->
           <svg width="980" height="600" id="statesvg"></svg>
         </div>
 
       <div class='col-md-2'>
-        <!--- Begin HTML Code for Matrix -->
-<!--
-        <div>
-          <div class = "btn-group btn-group-vertical" id="filterBtns" data-toggle = "buttons" style="width:135px;"> 
-            <h4 style="text-align:center;">Per 1,000,000 People:</h4>
-            <button class="btn btn-info btn-sm btn-htv" id="allTraffickingBtn">All Human Trafficking</button>
-            <button class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtn">Sex Trade</button> 
-            <button class="btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtn">Forced Labor</button>
-          </div>
-        </div>
--->
-
-<!--        New Matrix    -->
-            <div style="width: 135px">
-                <h4 style="text-align: center;">Per 1,000,000 People:</h4>
-                <div class="title" style="background-color: #d9534f;"><div style="padding:3px; text-align:center;">All Human Trafficking</div>
-                    <div class="btn-group btn-group-justified">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-danger" id="allTraffickingBtn">All</button>
-                      </div>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-danger" id="allTraffickingBtnM">M</button>
-                      </div>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-danger" id="allTraffickingBtnF">F</button>
-                      </div>
-                    </div>
+        <div style="width: 135px">
+            <h4 style="text-align: center;">Per 1,000,000 People:</h4>
+            <div class="title"><div style="padding:3px; text-align:center;">All Human Trafficking</div>
+                <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
+                    <button type="button" text="All Human Trafficking" class="graph-select btn btn-info btn-sm btn-htv" id="allTraffickingBtn">All</button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" text="All Human Trafficking (Male)" class="graph-select btn btn-info btn-sm btn-htv" id="allTraffickingBtnM">M</button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" text="All Human Trafficking (Female)" class="graph-select btn btn-info btn-sm btn-htv" id="allTraffickingBtnF">F</button>
+                  </div>
                 </div>
+            </div>
 
                 <br>
 
                 <div class="title" style="background-color: #d9534f;"><div style="padding-bottom:3px; text-align:center;">Sex Trade</div>
                     <div class="btn-group btn-group-justified">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtn">All</button>
+                        <button type="button" text="Sex Trade" class="graph-select btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtn">All</button>
                       </div>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnM">M</button>
+                        <button type="button" text="Sex Trade (Male)" class="graph-select btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnM">M</button>
                       </div>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnF">F</button>
+                        <button type="button" text="Sex Trade (Female)" class="graph-select btn btn-info btn-sm btn-htv btn-danger" id="sexTradeBtnF">F</button>
                       </div>
                     </div>
                 </div>
 
                 <br>
 
-                <div class="title" style="background-color: #d9534f;"><div style="padding-bottom:3px; text-align:center;">Forced Labor</div>
+                <div class="title" style="background-color: #f0ad4e;"><div style="padding-bottom:3px; text-align:center;">Forced Labor</div>
                     <div class="btn-group btn-group-justified">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="forcedLaborBtn">All</button>
+                        <button type="button" text="Forced Labor" class="graph-select btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtn">All</button>
                       </div>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="forcedLaborBtnM">M</button>
+                        <button type="button" text="Forced Labor (Male)" class="graph-select btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtnM">M</button>
                       </div>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm btn-htv btn-danger" id="forcedLaborBtnF">F</button>
+                        <button type="button" text="Forced Labor (Female)" class="graph-select btn btn-info btn-sm btn-htv btn-warning" id="forcedLaborBtnF">F</button>
                       </div>
                     </div>
                 </div>
-            </div>
+            </div> 
 <!--      End New Matrix      -->
 
         <table style="float:right; padding-top:10px;display:inline;position:relative;">
           <div style="padding-top: 0px;">
             <div class = "btn-group btn-group-vertical" id="filterBtns" data-toggle = "buttons" style="width:135px;">
-              <h4 style="text-align:center;">Compare Two States: </h4>
+              <h4 style="text-align:center;">Compare two states: </h4>
               <select id='state1' name="state1" class='chosen-select'>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -154,7 +141,7 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-
+                
               <select id='state2' name="state2" class="chosen-select">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -208,7 +195,7 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-              <button id="compare" class="btn btn-danger btn-sm" style="width:135px; margin-top:10px;background-color: #d9534f;">Compare</button>
+              <button id="compare" class="btn btn-success btn-sm" style="width:135px; margin-top:10px;">compare</button>
             </table>
           </div> <!-- End of col-md-2 -->
         </div> <!-- End of row -->
@@ -216,13 +203,15 @@
       <div class='row' style="text-align:center;">
           <br>
           <br>
-
+         
         <h3 id="toHelp">What Can You Do to Help?</h3>
         <p>If you or someone you know is in immediate danger, please call 911. If you believe you have information about a potential trafficking situation: <br>
           Call the National Human trafficking Resource Center (NHTRC) toll-free hotline at 1-888-373-7888.</p>
       </div>
-          <br>
 
+    <svg class="chart"></svg>
+            
+          
       <div class='row'>
         <div id="footer">
           <div class="container">
@@ -238,17 +227,13 @@
                 Files:
               </h3>
               <div class="foot-links">
-                  <li>index.js</li>
+                  <li>index.html</li> 
                   <li>data.json</li>
-                  <li>index.html</li>
-                  <li>result.csv</li>
-                  <li>states.json</li>
-                  <li>us.json</li>
-                  <li>uStates.js</li>
-                  <li>README.md</li>
+                  <li>uStates.js</li> 
+                  <li>README</li>
+                  <li>data.csv</li>
                   <li>custom.css</li>
-
-
+                  <li>result.csv</li>
               </div>
             </div><!--/col-sm-3-->
             <div class="col-sm-3" style="margin-left: 5px";>
@@ -256,7 +241,7 @@
               <div class="foot-links">
                 <li>The 2015 annual report</li>
                 <a href="http://traffickingresourcecenter.org/resources" target="_blank" >traffickingresourcenter.org/resources</a>
-
+                
               </div>
             </div>
             <div class="col-sm-3" style="margin-left: 75px";>
@@ -296,6 +281,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src='chosen_v1.5.1/chosen.jquery.min.js'></script>
     <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="bar.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
