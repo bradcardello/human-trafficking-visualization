@@ -6,27 +6,30 @@ var typeOfCrimeStr;
 /* function to create html content string in tooltip div. */
 function tooltipHtml(n, d) {
   return "<h4 style='color: blue;'>"+n+"</h4><p>Per 1,000,000 People</p><table>"+
-  "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"+
+  
     "<tr><td align='left'>Sex trade: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Forced labor: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal)  * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td align='left'>Total Crimes: </td><td align='right'>"+parseFloat(Math.round((d.totalCrimes) * 100) / 100).toFixed(2)+"</td></tr>"
     "</table>";
 }
 
 /* function to create html content string in tooltip div. */
 function tooltipHtmlSex(n, d) {
   return "<h4 style='color: blue;'>"+n+"</h4><p><b>Sex Trade</b> <br> Per 1,000,000 People</p><table>"+
-  "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
+  
     "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Female: </td><td align='right'>"+parseFloat(Math.round((d.femalesSex)  * 100) / 100).toFixed(2)+"</td></tr>"+
+       "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.sexTotal) * 100) / 100).toFixed(2)+"</td></tr>"
     "</table>";
 }
 
 /* function to create html content string in tooltip div. */
 function tooltipHtmlLabor(n, d) {
   return "<h4 style='color: blue;'>"+n+"</h4><b>Forced Labor</b> <br> <p>Per 1,000,000 People</p><table>"+
-  "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal) * 100) / 100).toFixed(2)+"</td></tr>"+
+  
     "<tr><td align='left'>Male: </td><td align='right'>"+parseFloat(Math.round((d.malesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
     "<tr><td align='left'>Female: </td><td align='right'>"+parseFloat(Math.round((d.femalesLabor)  * 100) / 100).toFixed(2)+"</td></tr>"+
+      "<tr><td align='left'>Total: </td><td align='right'>"+parseFloat(Math.round((d.laborTotal) * 100) / 100).toFixed(2)+"</td></tr>"
     "</table>";
 }
 
